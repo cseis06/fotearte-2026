@@ -1,34 +1,49 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next'
+import { Poppins } from 'next/font/google'
+import './globals.css'
+
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Notification from "@/components/layout/Notification";
 
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-  subsets: ["latin"],
-});
+import { metadata as siteMetadata, viewport as siteViewport, jsonLd, siteConfig } from './metadata'
 
-export const metadata: Metadata = {
-  title: "Fotearte",
-  description: "Más que una escuela de fotografía: Un espacio donde tu creatividad florece. Cursos dinámicos y una comunidad apasionada, ¡Haz clic y únete hoy mismo!",
-};
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
+  display: 'swap',
+})
+
+export const metadata: Metadata = siteMetadata
+export const viewport: Viewport = siteViewport
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
-      <body className={`${poppins.className} antialiased scroll-smooth`}>
+    <html lang="es" className={poppins.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
+      <body className="font-poppins antialiased bg-neutral-950 text-white">
         <Header />
         {children}
-        <Notification />
         <Footer />
+
+        <Notification />
       </body>
     </html>
-  );
+  )
 }

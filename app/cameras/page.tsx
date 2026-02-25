@@ -7,18 +7,6 @@ import CamerasCatalog from '@/components/cameras/CamerasCatalog'
 // Importar imagen de fondo
 import HeroBg from '../../public/bg/cameras.png'
 
-// Metadata para SEO
-export const metadata: Metadata = {
-  title: 'Alquiler de Cámaras | FoteArte Paraguay',
-  description: 'Alquilá cámaras profesionales Canon, Nikon, Sony y más. Equipos de fotografía y video disponibles por día, fin de semana o semana. Entrega en todo Paraguay.',
-  keywords: ['alquiler cámaras', 'rent camera', 'cámaras profesionales', 'fotografía Paraguay', 'Canon', 'Nikon', 'Sony'],
-  openGraph: {
-    title: 'Alquiler de Cámaras | FoteArte Paraguay',
-    description: 'Equipos profesionales de fotografía disponibles para alquiler.',
-    type: 'website',
-  },
-}
-
 // Tipos
 interface Camera {
   id: string
@@ -278,7 +266,7 @@ export default async function CamerasPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://wa.me/595971000000"
+              href="https://wa.me/595973497799"
               target="_blank"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-colors duration-300"
             >

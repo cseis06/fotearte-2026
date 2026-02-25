@@ -35,7 +35,7 @@ const Header = () => {
   }, [isMobileMenuOpen])
 
   const navLinks = [
-    { href: "#", label: "Inicio" },
+    { href: "/", label: "Inicio" },
     { href: "/cameras", label: "Cámaras" },
     { href: "/gallery", label: "Galería" },
     { href: "/courses", label: "Cursos" },

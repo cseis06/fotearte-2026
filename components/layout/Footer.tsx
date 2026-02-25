@@ -23,10 +23,10 @@ const Footer = () => {
   ]
 
   const redesSociales = [
-    { icon: "mdi:instagram", href: "https://instagram.com", label: "Instagram" },
-    { icon: "mdi:twitter", href: "https://twitter.com", label: "X" },
-    { icon: "mdi:facebook", href: "https://facebook.com", label: "Facebook" },
-    { icon: "mdi:whatsapp", href: "https://wa.me/", label: "WhatsApp" }
+    { icon: "mdi:instagram", href: "https://www.instagram.com/fotearte", label: "Instagram" },
+    { icon: "mdi:twitter", href: "https://x.com/foteARTE", label: "X" },
+    { icon: "mdi:facebook", href: "https://www.facebook.com/Fotearte", label: "Facebook" },
+    { icon: "mdi:whatsapp", href: "https://wa.me/595973497799", label: "WhatsApp" }
   ]
 
   return (

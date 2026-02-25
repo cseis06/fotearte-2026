@@ -1,0 +1,39 @@
+# robots.txt para FoteArte Paraguay
+# https://fotearte.com.py
+
+# Permitir todos los robots
+User-agent: *
+Allow: /
+
+# Bloquear rutas administrativas y privadas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Permitir recursos estáticos
+Allow: /_next/static/
+Allow: /images/
+Allow: /photos/
+
+# Crawl-delay para ser amigable con el servidor
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://fotearte.com.py/sitemap.xml
+
+# Google específico
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /photos/
+Allow: /images/
+Allow: /cameras/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
