@@ -7,7 +7,60 @@ import CamerasCatalog from '@/components/cameras/CamerasCatalog'
 // Importar imagen de fondo
 import HeroBg from '../../public/bg/cameras.png'
 
-// Tipos
+export const metadata: Metadata = {
+  title: 'Alquiler de Cámaras y Equipos Fotográficos',
+  description: 'Alquilá cámaras profesionales Canon, Sony, Nikon y más en Paraguay. Equipos de fotografía y video por día, fin de semana o semana. Lentes, luces, estabilizadores. Entrega en Asunción y todo el país.',
+  
+  keywords: [
+    'alquiler cámaras Paraguay',
+    'alquiler equipos fotográficos',
+    'rent camera Asunción',
+    'alquiler cámaras profesionales',
+    
+    'alquiler Canon Paraguay',
+    'alquiler Sony Paraguay', 
+    'alquiler Nikon Paraguay',
+    'alquiler Blackmagic',
+    
+    'alquiler lentes fotográficos',
+    'alquiler cámara mirrorless',
+    'alquiler cámara DSLR',
+    'alquiler cámara cine',
+    'alquiler estabilizador gimbal',
+    'alquiler luces fotografía',
+  
+    'alquiler cámaras Asunción',
+    'alquiler equipos Ciudad del Este',
+    'rent camera Paraguay',
+  ],
+
+  openGraph: {
+    title: 'Alquiler de Cámaras Profesionales | FoteArte Paraguay',
+    description: 'Canon, Sony, Nikon y más. Alquilá equipos profesionales de fotografía y video por día o semana. Entrega en todo Paraguay.',
+    url: 'https://fotearte.com.py/cameras',
+    images: [
+      {
+        url: '/og-cameras.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Alquiler de cámaras profesionales en FoteArte Paraguay',
+      },
+    ],
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alquiler de Cámaras Profesionales | FoteArte',
+    description: 'Canon, Sony, Nikon y más. Equipos profesionales por día o semana.',
+    images: ['/og-cameras.jpg'],
+  },
+
+  alternates: {
+    canonical: 'https://fotearte.com.py/cameras',
+  },
+}
+
 interface Camera {
   id: string
   name: string
@@ -26,7 +79,6 @@ interface Category {
   icon: string
 }
 
-// Función para obtener cámaras (en producción sería fetch a API/DB)
 async function getCameras(): Promise<Camera[]> {
   const cameras: Camera[] = [
     {
@@ -167,158 +219,211 @@ const categories: Category[] = [
   { id: 'accessory', label: 'Accesorios', icon: 'mdi:flashlight' }
 ]
 
-// Página principal (Server Component)
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Alquiler de Equipos Fotográficos',
+  provider: {
+    '@type': 'Organization',
+    name: 'FoteArte Paraguay',
+    url: 'https://fotearte.com.py',
+  },
+  serviceType: 'Camera Rental',
+  description: 'Alquiler de cámaras profesionales, lentes y accesorios de fotografía y video.',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Paraguay',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Catálogo de Equipos',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Cámaras Mirrorless',
+          description: 'Canon, Sony, Nikon mirrorless',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Cámaras DSLR',
+          description: 'Cámaras réflex profesionales',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Lentes',
+          description: 'Lentes de diversas focales y aperturas',
+        },
+      },
+    ],
+  },
+}
+
 export default async function CamerasPage() {
   const cameras = await getCameras()
   const totalEquipment = cameras.length
   const brands = [...new Set(cameras.map(c => c.brand))].length
 
   return (
-    <main className="min-h-screen bg-black">
-      {/* Hero Section con imagen de fondo */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        {/* Imagen de fondo */}
-        <div className="absolute inset-0">
-          <Image
-            src={HeroBg}
-            alt="Equipos profesionales de fotografía"
-            fill
-            className="object-cover object-center"
-            priority
-            placeholder="blur"
-          />
-          {/* Overlay oscuro para legibilidad */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
-        {/* Contenido */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-30">
-          <div className="max-w-2xl flex flex-col justify-center items-center text-center">
-            <p className="text-orange-600 text-sm font-light tracking-[0.3em] uppercase mb-4">
-              Alquiler de Equipos
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-tight">
-              Equipos profesionales
-              <span className="text-neutral-400 font-light"> para cada proyecto</span>
-            </h1>
-            <p className="text-neutral-300 font-light text-lg md:text-xl leading-relaxed mb-10">
-              Accedé a cámaras, lentes y accesorios de las mejores marcas del mundo. 
-              Alquiler por día, fin de semana o semana completa con entrega en todo Paraguay.
-            </p>
+      <main className="min-h-screen bg-black">
+        {/* Hero Section con imagen de fondo */}
+        <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+          {/* Imagen de fondo */}
+          <div className="absolute inset-0">
+            <Image
+              src={HeroBg}
+              alt="Equipos profesionales de fotografía"
+              fill
+              className="object-cover object-center"
+              priority
+              placeholder="blur"
+            />
+            {/* Overlay oscuro para legibilidad */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          </div>
 
-            {/* Quick stats */}
-            <div className="flex flex-wrap gap-10">
-              <div>
-                <p className="text-4xl font-semibold text-white">{totalEquipment}+</p>
-                <p className="text-neutral-400 font-light text-sm">Equipos</p>
+          {/* Contenido */}
+          <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-30">
+            <div className="max-w-2xl flex flex-col justify-center items-center text-center">
+              <p className="text-orange-600 text-sm font-light tracking-[0.3em] uppercase mb-4">
+                Alquiler de Equipos
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-tight">
+                Equipos profesionales
+                <span className="text-neutral-400 font-light"> para cada proyecto</span>
+              </h1>
+              <p className="text-neutral-300 font-light text-lg md:text-xl leading-relaxed mb-10">
+                Accedé a cámaras, lentes y accesorios de las mejores marcas del mundo. 
+                Alquiler por día, fin de semana o semana completa con entrega en todo Paraguay.
+              </p>
+
+              {/* Quick stats */}
+              <div className="flex flex-wrap gap-10">
+                <div>
+                  <p className="text-4xl font-semibold text-white">{totalEquipment}+</p>
+                  <p className="text-neutral-400 font-light text-sm">Equipos</p>
+                </div>
+                <div>
+                  <p className="text-4xl font-semibold text-white">{brands}</p>
+                  <p className="text-neutral-400 font-light text-sm">Marcas</p>
+                </div>
+                <div>
+                  <p className="text-4xl font-semibold text-white">5</p>
+                  <p className="text-neutral-400 font-light text-sm">Ciudades</p>
+                </div>
               </div>
-              <div>
-                <p className="text-4xl font-semibold text-white">{brands}</p>
-                <p className="text-neutral-400 font-light text-sm">Marcas</p>
-              </div>
-              <div>
-                <p className="text-4xl font-semibold text-white">5</p>
-                <p className="text-neutral-400 font-light text-sm">Ciudades</p>
+
+              {/* CTA en hero */}
+              <div className="flex flex-wrap gap-4 mt-10">
+                <a 
+                  href="#catalogo"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-600 text-white font-semibold rounded-full hover:bg-orange-700 transition-colors duration-300"
+                >
+                  Ver catálogo
+                  <Icon icon="mdi:arrow-down" className="w-5 h-5" />
+                </a>
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white font-light rounded-full hover:border-orange-600 hover:text-orange-600 transition-colors duration-300"
+                >
+                  Consultar disponibilidad
+                </Link>
               </div>
             </div>
+          </div>
 
-            {/* CTA en hero */}
-            <div className="flex flex-wrap gap-4 mt-10">
-              <a 
-                href="#catalogo"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-600 text-white font-semibold rounded-full hover:bg-orange-700 transition-colors duration-300"
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <div className="w-1 h-2 bg-white/50 rounded-full mt-2 animate-bounce" />
+            </div>
+          </div>
+        </section>
+
+        {/* Catálogo interactivo (Client Component) */}
+        <div id="catalogo">
+          <CamerasCatalog cameras={cameras} categories={categories} />
+        </div>
+
+        {/* CTA Section */}
+        <section className="py-20 border-t border-neutral-900">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              ¿No encontrás lo que buscás?
+            </h2>
+            <p className="text-neutral-400 font-light mb-8">
+              Contactanos y te ayudamos a conseguir el equipo perfecto para tu proyecto.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="https://wa.me/595973497799"
+                target="_blank"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-colors duration-300"
               >
-                Ver catálogo
-                <Icon icon="mdi:arrow-down" className="w-5 h-5" />
-              </a>
+                <Icon icon="mdi:whatsapp" className="w-5 h-5" />
+                WhatsApp
+              </Link>
               <Link
                 href="/contacto"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white font-light rounded-full hover:border-orange-600 hover:text-orange-600 transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-700 text-white font-light rounded-full hover:border-orange-600 hover:text-orange-600 transition-colors duration-300"
               >
-                Consultar disponibilidad
+                Enviar consulta
               </Link>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-white/50 rounded-full mt-2 animate-bounce" />
-          </div>
-        </div>
-      </section>
-
-      {/* Catálogo interactivo (Client Component) */}
-      <div id="catalogo">
-        <CamerasCatalog cameras={cameras} categories={categories} />
-      </div>
-
-      {/* CTA Section */}
-      <section className="py-20 border-t border-neutral-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-            ¿No encontrás lo que buscás?
-          </h2>
-          <p className="text-neutral-400 font-light mb-8">
-            Contactanos y te ayudamos a conseguir el equipo perfecto para tu proyecto.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="https://wa.me/595973497799"
-              target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-colors duration-300"
-            >
-              <Icon icon="mdi:whatsapp" className="w-5 h-5" />
-              WhatsApp
-            </Link>
-            <Link
-              href="/contacto"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-700 text-white font-light rounded-full hover:border-orange-600 hover:text-orange-600 transition-colors duration-300"
-            >
-              Enviar consulta
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Información adicional */}
-      <section className="py-16 border-t border-neutral-900 bg-neutral-900/30">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center md:text-left">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
-                <Icon icon="mdi:truck-outline" className="w-6 h-6 text-orange-600" />
+        {/* Información adicional */}
+        <section className="py-16 border-t border-neutral-900 bg-neutral-900/30">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center md:text-left">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
+                  <Icon icon="mdi:truck-outline" className="w-6 h-6 text-orange-600" />
+                </div>
+                <h3 className="text-white font-semibold mb-2">Entrega y devolución</h3>
+                <p className="text-neutral-500 font-light text-sm">
+                  Retiro en sede o delivery a domicilio en Asunción y Gran Asunción. Envíos al interior.
+                </p>
               </div>
-              <h3 className="text-white font-semibold mb-2">Entrega y devolución</h3>
-              <p className="text-neutral-500 font-light text-sm">
-                Retiro en sede o delivery a domicilio en Asunción y Gran Asunción. Envíos al interior.
-              </p>
-            </div>
-            
-            <div className="text-center md:text-left">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
-                <Icon icon="mdi:shield-check-outline" className="w-6 h-6 text-orange-600" />
+              
+              <div className="text-center md:text-left">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
+                  <Icon icon="mdi:shield-check-outline" className="w-6 h-6 text-orange-600" />
+                </div>
+                <h3 className="text-white font-semibold mb-2">Seguro incluido</h3>
+                <p className="text-neutral-500 font-light text-sm">
+                  Todos nuestros equipos cuentan con seguro básico. Cobertura extendida disponible.
+                </p>
               </div>
-              <h3 className="text-white font-semibold mb-2">Seguro incluido</h3>
-              <p className="text-neutral-500 font-light text-sm">
-                Todos nuestros equipos cuentan con seguro básico. Cobertura extendida disponible.
-              </p>
-            </div>
-            
-            <div className="text-center md:text-left">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
-                <Icon icon="mdi:headset" className="w-6 h-6 text-orange-600" />
+              
+              <div className="text-center md:text-left">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
+                  <Icon icon="mdi:headset" className="w-6 h-6 text-orange-600" />
+                </div>
+                <h3 className="text-white font-semibold mb-2">Soporte técnico</h3>
+                <p className="text-neutral-500 font-light text-sm">
+                  Asistencia durante todo el período de alquiler. Reemplazo inmediato ante fallas.
+                </p>
               </div>
-              <h3 className="text-white font-semibold mb-2">Soporte técnico</h3>
-              <p className="text-neutral-500 font-light text-sm">
-                Asistencia durante todo el período de alquiler. Reemplazo inmediato ante fallas.
-              </p>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   )
 }
