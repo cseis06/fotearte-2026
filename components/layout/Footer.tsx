@@ -14,6 +14,14 @@ const Footer = () => {
     "Nueva York",
   ]
 
+  const institucional = [
+    { label: "Sobre Nosotros", href: "/" },
+    { label: "FAQ", href: "/sobre-nosotros" },
+    { label: "Privacidad", href: "/galeria" },
+    { label: "Términos y Condiciones", href: "/cursos" },
+    { label: "Copyright", href: "/contacto" }
+  ]
+
   const menuItems = [
     { label: "Inicio", href: "/" },
     { label: "Cursos", href: "/sobre-nosotros" },
@@ -36,26 +44,26 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row  justify-between gap-6">
           
           {/* Logo y descripción */}
-          <div className="max-w-lg flex flex-col gap-4">
+          <div className="w-full md:max-w-md lg:max-w-lg flex flex-col gap-4">
             <Image 
               src={Logo} 
               alt="FoteArte Paraguay"
               className="mb-2 w-[160px] md:w-[250px]"
             />
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-700 text-xs md:text-sm leading-relaxed">
               Más que una escuela de fotografía: Un espacio donde tu creatividad florece. 
               Cursos dinámicos y una comunidad apasionada, ¡Haz clic y únete hoy mismo!
             </p>
           </div>
 
-          <div className='flex gap-36'>
+          <div className='flex flex-col md:flex-row gap-5 md:gap-10 lg:gap-20'>
             {/* Ubicaciones */}
             <div className="flex flex-col gap-4">
-              <h3 className="font-semibold text-gray-900 text-lg">Ubicaciones</h3>
+              <h3 className="font-semibold text-gray-900 text-base md:text-lg">Ubicaciones</h3>
               <ul className="flex flex-col gap-2">
                 {ubicaciones.map((ubicacion, index) => (
                   <li key={index}>
-                    <span className="text-gray-700 text-sm hover:text-orange-600 transition-colors cursor-pointer">
+                    <span className="text-gray-700 text-xs md:text-sm hover:text-orange-600 transition-colors cursor-pointer">
                       {ubicacion}
                     </span>
                   </li>
@@ -63,15 +71,32 @@ const Footer = () => {
               </ul>
             </div>
 
+            {/* Institucional */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-gray-900 text-base md:text-lg">Institucional</h3>
+              <ul className="flex flex-col gap-2">
+                {institucional.map((item, index) => (
+                  <li key={index}>
+                    <Link 
+                      href={item.href}
+                      className="text-gray-700 text-xs md:text-sm hover:text-orange-600 transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Menú */}
             <div className="flex flex-col gap-4">
-              <h3 className="font-semibold text-gray-900 text-lg">Menú</h3>
+              <h3 className="font-semibold text-gray-900 text-base md:text-lg">Menú</h3>
               <ul className="flex flex-col gap-2">
                 {menuItems.map((item, index) => (
                   <li key={index}>
                     <Link 
                       href={item.href}
-                      className="text-gray-700 text-sm hover:text-orange-600 transition-colors"
+                      className="text-gray-700 text-xs md:text-sm hover:text-orange-600 transition-colors"
                     >
                       {item.label}
                     </Link>

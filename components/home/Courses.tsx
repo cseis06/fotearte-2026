@@ -144,7 +144,7 @@ const CoursesSection = () => {
                   href={course.slug}
                   className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-3.5 rounded-full transition-all duration-300 group"
                 >
-                  <span className="text-sm font-semibold tracking-wide uppercase">Inscribirse</span>
+                  <span className="text-sm font-semibold tracking-wide uppercase">Inscribirme</span>
                   <svg 
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
                     fill="none" 
