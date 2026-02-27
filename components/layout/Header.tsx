@@ -36,7 +36,7 @@ const Header = () => {
   }, [isMobileMenuOpen])
 
   const navLinks = [
-    { href: "/", label: "Inicio" },
+    { href: "/institucional/sobre-nosotros", label: "Nosotros" },
     { href: "/camaras", label: "Cámaras" },
     { href: "/galeria", label: "Galería" },
     { href: "/cursos", label: "Cursos" },
@@ -75,9 +75,13 @@ const Header = () => {
             </li>
           ))}
           <li>
-            <button className="font-semibold bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-full cursor-pointer transition-all duration-300">
+            <Link 
+              href='/contacto'
+              target='_blank'
+              className="font-semibold bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-full cursor-pointer transition-all duration-300"
+            >
               Contacto
-            </button>
+            </Link>
           </li>
         </ul>
 
@@ -147,12 +151,14 @@ const Header = () => {
             `}
             style={{ transitionDelay: isMobileMenuOpen ? `${navLinks.length * 100}ms` : '0ms' }}
           >
-            <button 
+            <Link 
+              href='/contacto'
+              target='_blank'
               className="bg-orange-600 hover:bg-orange-700 px-8 py-3 rounded-full cursor-pointer transition-all duration-300 text-base"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contacto
-            </button>
+            </Link>
           </li>
         </ul>
       </div>

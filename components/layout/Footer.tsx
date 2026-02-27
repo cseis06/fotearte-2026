@@ -52,7 +52,7 @@ const Footer = () => {
             />
             <p className="text-gray-700 text-xs md:text-sm leading-relaxed">
               Más que una escuela de fotografía: Un espacio donde tu creatividad florece. 
-              Cursos dinámicos y una comunidad apasionada, ¡Haz clic y únete hoy mismo!
+              Cursos dinámicos y una comunidad apasionada, ¡Hace clic y uníte hoy mismo!
             </p>
           </div>
 
