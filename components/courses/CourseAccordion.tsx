@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { Icon } from '@iconify/react'
 import gsap from 'gsap'
 
@@ -57,7 +57,7 @@ export default function CourseAccordion({ classes, courseId }: CourseAccordionPr
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="grid grid-cols-1 gap-3">
       {classes.map((classItem, index) => (
         <div 
           key={`${courseId}-class-${index}`}
@@ -66,7 +66,7 @@ export default function CourseAccordion({ classes, courseId }: CourseAccordionPr
           {/* Header - Clickable */}
           <button
             onClick={() => toggleClass(index)}
-            className="w-full flex items-center justify-between p-5 text-left hover:bg-neutral-800/30 transition-colors duration-200"
+            className="w-full flex items-center justify-between p-5 text-left hover:bg-neutral-800/30 transition-colors duration-200 cursor-pointer"
           >
             <div className="flex items-center gap-4">
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-600/10 text-orange-600 text-sm font-semibold">
@@ -102,7 +102,7 @@ export default function CourseAccordion({ classes, courseId }: CourseAccordionPr
                     key={topicIndex}
                     className="flex items-start gap-3 text-neutral-300 font-light text-sm"
                   >
-                    <span className="w-1.5 h-1.5 bg-orange-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-orange-600 rounded-full mt-1.5 shrink-0" />
                     {topic}
                   </li>
                 ))}

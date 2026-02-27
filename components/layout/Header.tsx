@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Logo from "../../public/logo.svg";
+import Link from 'next/link';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -36,9 +37,9 @@ const Header = () => {
 
   const navLinks = [
     { href: "/", label: "Inicio" },
-    { href: "/cameras", label: "Cámaras" },
-    { href: "/gallery", label: "Galería" },
-    { href: "/courses", label: "Cursos" },
+    { href: "/camaras", label: "Cámaras" },
+    { href: "/galeria", label: "Galería" },
+    { href: "/cursos", label: "Cursos" },
   ]
 
   return (
@@ -55,22 +56,22 @@ const Header = () => {
     >
       <nav className="w-full flex justify-between items-center">
         {/* Logo */}
-        <div className='cursor-pointer transition-all duration-500'>
+        <Link href='/' className='cursor-pointer transition-all duration-500'>
           <Image 
             src={Logo} 
             alt="logo" 
             width={isScrolled ? 180 : 220} 
             className="transition-all duration-500"
           />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center gap-8 text-sm">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a href={link.href} className="hover:text-gray-300 transition-all duration-300">
+              <Link href={link.href} className="hover:text-gray-300 transition-all duration-300">
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li>
@@ -127,13 +128,13 @@ const Header = () => {
               `}
               style={{ transitionDelay: isMobileMenuOpen ? `${index * 100}ms` : '0ms' }}
             >
-              <a 
+              <Link 
                 href={link.href} 
-                className="hover:text-orange-500 transition-all duration-300"
+                className="hover:text-gray-300 transition-all duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li

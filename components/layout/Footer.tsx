@@ -15,18 +15,18 @@ const Footer = () => {
   ]
 
   const institucional = [
-    { label: "Sobre Nosotros", href: "/" },
-    { label: "FAQ", href: "/sobre-nosotros" },
-    { label: "Privacidad", href: "/galeria" },
-    { label: "Términos y Condiciones", href: "/cursos" },
-    { label: "Copyright", href: "/contacto" }
+    { label: "Sobre Nosotros", href: "/institucional/sobre-nosotros" },
+    { label: "FAQ", href: "/institucional/faq" },
+    { label: "Privacidad", href: "/institucional/privacidad" },
+    { label: "Términos y Condiciones", href: "/institucional/terminos-y-condiciones" },
+    { label: "Copyright", href: "/institucional/copyright" }
   ]
 
   const menuItems = [
     { label: "Inicio", href: "/" },
-    { label: "Cursos", href: "/sobre-nosotros" },
+    { label: "Cursos", href: "/cursos" },
     { label: "Galería", href: "/galeria" },
-    { label: "Cámaras", href: "/cursos" },
+    { label: "Cámaras", href: "/camaras" },
     { label: "Contacto", href: "/contacto" }
   ]
 
@@ -63,7 +63,7 @@ const Footer = () => {
               <ul className="flex flex-col gap-2">
                 {ubicaciones.map((ubicacion, index) => (
                   <li key={index}>
-                    <span className="text-gray-700 text-xs md:text-sm hover:text-orange-600 transition-colors cursor-pointer">
+                    <span className="text-gray-700 text-xs md:text-sm">
                       {ubicacion}
                     </span>
                   </li>
@@ -79,7 +79,7 @@ const Footer = () => {
                   <li key={index}>
                     <Link 
                       href={item.href}
-                      className="text-gray-700 text-xs md:text-sm hover:text-orange-600 transition-colors"
+                      className="text-gray-700 text-xs md:text-sm hover:text-gray-500 transform transition-all"
                     >
                       {item.label}
                     </Link>
@@ -96,7 +96,7 @@ const Footer = () => {
                   <li key={index}>
                     <Link 
                       href={item.href}
-                      className="text-gray-700 text-xs md:text-sm hover:text-orange-600 transition-colors"
+                      className="text-gray-700 text-xs md:text-sm hover:text-gray-500 transition-colors"
                     >
                       {item.label}
                     </Link>
