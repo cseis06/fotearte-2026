@@ -20,9 +20,25 @@ export const metadata: Metadata = {
 }
 
 // ============================================
+// TIPOS
+// ============================================
+interface ContentItem {
+  text?: string
+  subtitle?: string
+  items?: string[]
+}
+
+interface Section {
+  id: string
+  icon: string
+  title: string
+  content: ContentItem[]
+}
+
+// ============================================
 // DATOS
 // ============================================
-const sections = [
+const sections: Section[] = [
   {
     id: 'introduccion',
     icon: 'mdi:information-outline',
