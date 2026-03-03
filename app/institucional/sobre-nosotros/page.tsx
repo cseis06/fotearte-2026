@@ -5,10 +5,12 @@ import { Icon } from '@iconify/react'
 import AboutAnimations from '@/components/institucional/about/AboutAnimations'
 
 // Imágenes (ajustar rutas según tu estructura)
-import FounderImg from '../../../public/courses/notificacion.jpg'
+import FounderImg from '../../../public/about/founder.jpg'
 import StudioImg from '../../../public/courses/notificacion.jpg'
-import ClassImg from '../../../public/courses/notificacion.jpg'
-import CommunityImg from '../../../public/courses/notificacion.jpg'
+import ClassImg from '../../../public/fotearte/120.jpg'
+import CommunityImg from '../../../public/fotearte/26.jpg'
+import StudentsImg from '../../../public/fotearte/19.jpg'
+import StudentsImg2 from '../../../public/fotearte/45.jpg'
 
 // ============================================
 // METADATA SEO
@@ -103,10 +105,10 @@ const values = [
 ]
 
 const stats = [
-  { number: '14+', label: 'Años de historia' },
+  { number: '15+', label: 'Años de historia' },
   { number: '3,000+', label: 'Fotógrafos formados' },
   { number: '5', label: 'Ciudades' },
-  { number: '50+', label: 'Equipos disponibles' }
+  { number: '20+', label: 'Equipos disponibles' }
 ]
 
 // ============================================
@@ -123,7 +125,7 @@ export default function AboutPage() {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           {/* Background con efecto parallax */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black z-10" />
+            <div className="absolute inset-0 bg-linear-to-b from-black via-black/50 to-black z-10" />
             <Image
               src={StudioImg}
               alt="Estudio FoteArte"
@@ -185,7 +187,7 @@ export default function AboutPage() {
 
               {/* Imagen */}
               <div className="story-image relative">
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+                <div className="relative aspect-4/5 rounded-2xl overflow-hidden">
                   <Image
                     src={ClassImg}
                     alt="Clase de fotografía en FoteArte"
@@ -204,13 +206,13 @@ export default function AboutPage() {
         {/* ========== FUNDADOR ========== */}
         <section className="py-24 md:py-32 bg-neutral-900/30 relative overflow-hidden">
           {/* Decoración de fondo */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-600/5 to-transparent pointer-events-none" />
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-orange-600/5 to-transparent pointer-events-none" />
           
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Imagen del fundador */}
               <div className="founder-image relative order-2 lg:order-1">
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+                <div className="relative aspect-3/4 rounded-2xl overflow-hidden">
                   <Image
                     src={FounderImg}
                     alt="Manuel Pellón - Fundador de FoteArte"
@@ -218,7 +220,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                   {/* Overlay con nombre */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-black/80 to-transparent">
                     <p className="text-white text-2xl font-semibold">Manuel Pellón</p>
                     <p className="text-orange-500 font-light">Fundador & Director</p>
                   </div>
@@ -278,7 +280,7 @@ export default function AboutPage() {
             {/* Misión y Visión */}
             <div className="grid md:grid-cols-2 gap-8 mb-20">
               {/* Misión */}
-              <div className="mission-card bg-gradient-to-br from-orange-600/10 to-transparent border border-orange-600/20 rounded-3xl p-8 md:p-10">
+              <div className="mission-card bg-linear-to-br from-orange-600/10 to-transparent border border-orange-600/20 rounded-3xl p-8 md:p-10">
                 <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-orange-600/20 mb-6">
                   <Icon icon="mdi:compass-outline" className="w-7 h-7 text-orange-600" />
                 </div>
@@ -385,7 +387,7 @@ export default function AboutPage() {
               {/* Collage de fotos */}
               <div className="community-images relative grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                  <div className="relative aspect-4/3 rounded-2xl overflow-hidden">
                     <Image
                       src={CommunityImg}
                       alt="Comunidad FoteArte"
@@ -404,15 +406,15 @@ export default function AboutPage() {
                 <div className="space-y-4 pt-8">
                   <div className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-800">
                     <Image
-                      src="/about/community-2.jpg"
+                      src={StudentsImg}
                       alt="Alumnos FoteArte"
                       fill
                       className="object-cover"
                     />
                   </div>
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                  <div className="relative aspect-4/3 rounded-2xl overflow-hidden">
                     <Image
-                      src="/about/community-3.jpg"
+                      src={StudentsImg2}
                       alt="Exposición FoteArte"
                       fill
                       className="object-cover"
@@ -425,7 +427,7 @@ export default function AboutPage() {
         </section>
 
         {/* ========== CTA FINAL ========== */}
-        <section className="py-24 md:py-32 bg-gradient-to-b from-neutral-900/50 to-black">
+        <section className="py-24 md:py-32 bg-linear-to-b from-neutral-900/50 to-black">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
               Tu historia comienza
