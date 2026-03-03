@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 // ============================================
 const courses = [
   {
-    id: "inicial",
+    id: "nivel-inicial",
     level: "01",
     title: "Nivel Inicial",
     subtitle: "Primera Convocatoria",
@@ -176,7 +176,7 @@ const courses = [
     ]
   },
   {
-    id: "intermedio",
+    id: "nivel-intermedio",
     level: "02",
     title: "Nivel Intermedio",
     subtitle: "Primera Convocatoria",
@@ -521,7 +521,8 @@ export default function CursosPage() {
                         </p>
                       </div>
                       <Link
-                        href={`https://wa.me/595973497799?text=Hola! Me interesa el curso ${course.title}`}
+                        //href={`https://wa.me/595973497799?text=Hola! Me interesa el curso ${course.title}`}
+                        href={`/cursos/inscripcion/${course.id}`}
                         target="_blank"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 text-white font-semibold rounded-full hover:bg-orange-700 transition-colors duration-300"
                       >
