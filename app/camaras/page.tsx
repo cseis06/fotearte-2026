@@ -95,7 +95,7 @@ async function getCameras(): Promise<Camera[]> {
     {
       id: 'sony-a7iv',
       name: 'Alpha A7 IV',
-      brand: 'Sony',
+      brand: 'Canon',
       category: 'mirrorless',
       image: '/cameras/sony-a7iv.jpg',
       pricePerDay: 150000,
@@ -148,7 +148,7 @@ async function getCameras(): Promise<Camera[]> {
       id: 'canon-rf-2470',
       name: 'RF 24-70mm f/2.8L IS USM',
       brand: 'Canon',
-      category: 'lens',
+      category: 'mirrorless',
       image: '/cameras/canon-rf-2470.jpg',
       pricePerDay: 80000,
       specs: ['Apertura f/2.8', 'Estabilización 5 stops', 'Mount RF'],
@@ -158,7 +158,7 @@ async function getCameras(): Promise<Camera[]> {
       id: 'sony-gm-70200',
       name: 'FE 70-200mm f/2.8 GM II',
       brand: 'Sony',
-      category: 'lens',
+      category: 'mirrorless',
       image: '/cameras/sony-gm-70200.jpg',
       pricePerDay: 90000,
       specs: ['Apertura f/2.8', 'XD Linear Motors', 'Mount E'],
@@ -167,8 +167,8 @@ async function getCameras(): Promise<Camera[]> {
     {
       id: 'ronin-rs3-pro',
       name: 'RS 3 Pro',
-      brand: 'DJI',
-      category: 'accessory',
+      brand: 'Canon',
+      category: 'mirrorless',
       image: '/cameras/dji-rs3-pro.jpg',
       pricePerDay: 70000,
       specs: ['Carga 4.5kg', 'LiDAR Focus', 'Transmisión inalámbrica'],
@@ -177,8 +177,8 @@ async function getCameras(): Promise<Camera[]> {
     {
       id: 'godox-ad600',
       name: 'AD600 Pro',
-      brand: 'Godox',
-      category: 'accessory',
+      brand: 'Canon',
+      category: 'mirrorless',
       image: '/cameras/godox-ad600.jpg',
       pricePerDay: 50000,
       specs: ['600W', 'TTL/HSS', 'Batería incluida'],
@@ -187,7 +187,7 @@ async function getCameras(): Promise<Camera[]> {
     {
       id: 'blackmagic-6k',
       name: 'Pocket Cinema 6K Pro',
-      brand: 'Blackmagic',
+      brand: 'Canon',
       category: 'cinema',
       image: '/cameras/blackmagic-6k.jpg',
       pricePerDay: 180000,
@@ -197,13 +197,94 @@ async function getCameras(): Promise<Camera[]> {
     {
       id: 'sigma-art-35',
       name: '35mm f/1.4 DG HSM Art',
-      brand: 'Sigma',
-      category: 'lens',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
+      image: '/cameras/sigma-35-art.jpg',
+      pricePerDay: 45000,
+      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
+      available: true
+    },
+    {
+      id: 'sigma-art-35',
+      name: '35mm f/1.4 DG HSM Art',
+      brand: 'Canon',
+      category: 'mirrorless',
       image: '/cameras/sigma-35-art.jpg',
       pricePerDay: 45000,
       specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
       available: true
     }
+
   ]
 
   return cameras
@@ -215,8 +296,6 @@ const categories: Category[] = [
   { id: 'mirrorless', label: 'Mirrorless', icon: 'mdi:camera-outline' },
   { id: 'dslr', label: 'DSLR', icon: 'mdi:camera' },
   { id: 'cinema', label: 'Cinema', icon: 'mdi:video-outline' },
-  { id: 'lens', label: 'Lentes', icon: 'mdi:circle-outline' },
-  { id: 'accessory', label: 'Accesorios', icon: 'mdi:flashlight' }
 ]
 
 const jsonLd = {

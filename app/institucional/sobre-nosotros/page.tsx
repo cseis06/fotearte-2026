@@ -6,7 +6,7 @@ import AboutAnimations from '@/components/institucional/about/AboutAnimations'
 
 // Imágenes (ajustar rutas según tu estructura)
 import FounderImg from '../../../public/about/founder.jpg'
-import StudioImg from '../../../public/courses/notificacion.jpg'
+import StudioImg from '../../../public//fotearte/52.jpg'
 import ClassImg from '../../../public/fotearte/120.jpg'
 import CommunityImg from '../../../public/fotearte/26.jpg'
 import StudentsImg from '../../../public/fotearte/19.jpg'
@@ -125,7 +125,7 @@ export default function AboutPage() {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           {/* Background con efecto parallax */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-linear-to-b from-black via-black/50 to-black z-10" />
+            <div className="absolute inset-0 bg-linear-to-b from-black via-black/30 to-black z-10" />
             <Image
               src={StudioImg}
               alt="Estudio FoteArte"

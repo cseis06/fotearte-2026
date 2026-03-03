@@ -14,9 +14,9 @@ const courses = [
     title: "Nivel Inicial",
     description: "Aprende a dominar tu equipo desde cero. Descubre los fundamentos de la exposición manual, el triángulo de luz y las reglas de composición esenciales para crear imágenes impactantes. Ideal para entusiastas que buscan dejar el modo automático.",
     duration: "8 Semanas",
-    price: "₲ 550.000 /mes",
+    price: "₲ 480.000 /mes",
     image: Inicial,
-    slug: "/cursos/nivel-inicial",
+    slug: "/cursos/inscripcion/nivel-inicial",
     highlights: ["Mirada Fotográfica", "Dominio de Cámara", "Composición", "Retrato Natural"]
   },
   {
@@ -25,9 +25,9 @@ const courses = [
     title: "Nivel Intermedio",
     description: "Lleva tu fotografía al siguiente nivel profesional. Domina el retrato en exteriores, aprende a dirigir sesiones con diferentes sujetos y desarrolla tu propio estilo editorial. Para quienes ya dominan el modo manual.",
     duration: "8 Semanas",
-    price: "₲ 600.000 /mes",
+    price: "₲ 550.000 /mes",
     image: Intermedio,
-    slug: "/cursos/nivel-intermedio",
+    slug: "/cursos/inscripcion/nivel-intermedio",
     highlights: ["Retrato Profesional", "Dirección de Modelos", "Fotografía Editorial", "Portafolio Final"]
   }
 ]

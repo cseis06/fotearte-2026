@@ -52,14 +52,14 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       id: 'retratos',
       title: 'Retratos',
       subtitle: 'El alma en una mirada',
-      description: 'Capturamos la esencia de cada persona. Cada retrato es una ventana al interior, una historia contada a través de la luz, las sombras y la expresión.',
+      description: 'Capturar la esencia de cada persona. Cada retrato es una ventana al interior, una historia contada a través de la luz, las sombras y la expresión.',
       layout: 'hero-grid',
       photos: [
-        { id: 'r1', src: '/photos/retrato-01.jpg', title: 'Mirada Profunda', category: 'retratos', author: 'María González', date: '2024' },
-        { id: 'r2', src: '/photos/retrato-02.jpg', title: 'Luz Natural', category: 'retratos', author: 'Carlos Benítez', date: '2024' },
-        { id: 'r3', src: '/photos/retrato-03.jpg', title: 'Sombras', category: 'retratos', author: 'Ana Villalba', date: '2023' },
-        { id: 'r4', src: '/photos/retrato-04.jpg', title: 'Expresión', category: 'retratos', author: 'Luis Paredes', date: '2024' },
-        { id: 'r5', src: '/photos/retrato-05.jpg', title: 'Serenidad', category: 'retratos', author: 'Sofía Ramírez', date: '2023' },
+        { id: 'r1', src: '/fotearte/77.jpg', title: 'Mirada Profunda', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r2', src: '/fotearte/152.jpg', title: 'Luz Natural', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r3', src: '/fotearte/9.jpg', title: 'Sombras', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r4', src: '/fotearte/201.jpg', title: 'Expresión', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r5', src: '/fotearte/91.jpg', title: 'Serenidad', category: 'retratos', author: 'Desconocido', date: '2011' },
       ]
     },
     {
@@ -69,10 +69,10 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Desde los atardeceres sobre el río Paraguay hasta la inmensidad del Chaco. Nuestro país tiene una belleza única esperando ser capturada.',
       layout: 'cinema',
       photos: [
-        { id: 'p1', src: '/photos/paisaje-01.jpg', title: 'Atardecer en el Río', category: 'paisajes', author: 'Roberto Núñez', date: '2024' },
-        { id: 'p2', src: '/photos/paisaje-02.jpg', title: 'Cerro Lambaré', category: 'paisajes', author: 'Laura Martínez', date: '2024' },
-        { id: 'p3', src: '/photos/paisaje-03.jpg', title: 'Selva del Este', category: 'paisajes', author: 'Diego Acosta', date: '2023' },
-        { id: 'p4', src: '/photos/paisaje-04.jpg', title: 'Amanecer Chaqueño', category: 'paisajes', author: 'Elena Ferreira', date: '2024' },
+        { id: 'p1', src: '/fotearte/52.jpg', title: 'Atardecer en el Río', category: 'paisajes', author: 'Roberto Núñez', date: '2024' },
+        { id: 'p2', src: '/fotearte/70.jpg', title: 'Cerro Lambaré', category: 'paisajes', author: 'Laura Martínez', date: '2024' },
+        { id: 'p3', src: '/fotearte/39.jpg', title: 'Selva del Este', category: 'paisajes', author: 'Diego Acosta', date: '2023' },
+        { id: 'p4', src: '/fotearte/198.jpg', title: 'Amanecer Chaqueño', category: 'paisajes', author: 'Elena Ferreira', date: '2024' },
       ]
     },
     {
@@ -82,46 +82,47 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Momentos efímeros, gestos cotidianos, la poesía de lo urbano. La calle es nuestro estudio y la vida real, nuestra musa.',
       layout: 'masonry',
       photos: [
-        { id: 's1', src: '/photos/street-01.jpg', title: 'Mercado 4', category: 'street', author: 'Andrés Mendoza', date: '2024' },
-        { id: 's2', src: '/photos/street-02.jpg', title: 'Asunción de Noche', category: 'street', author: 'Valeria Ortiz', date: '2024' },
-        { id: 's3', src: '/photos/street-03.jpg', title: 'El Vendedor', category: 'street', author: 'Tomás Rojas', date: '2023' },
-        { id: 's4', src: '/photos/street-04.jpg', title: 'Paseo de la Galería', category: 'street', author: 'Camila Duarte', date: '2024' },
-        { id: 's5', src: '/photos/street-05.jpg', title: 'Lluvia Urbana', category: 'street', author: 'Fernando López', date: '2023' },
-        { id: 's6', src: '/photos/street-06.jpg', title: 'Reflejos', category: 'street', author: 'Patricia Giménez', date: '2024' },
-        { id: 's7', src: '/photos/street-07.jpg', title: 'Espera', category: 'street', author: 'Juan Vera', date: '2023' },
-        { id: 's8', src: '/photos/street-08.jpg', title: 'Movimiento', category: 'street', author: 'Lucía Cabrera', date: '2024' },
+        { id: 's1', src: '/fotearte/62.jpg', title: 'Mercado 4', category: 'street', author: 'Andrés Mendoza', date: '2024' },
+        { id: 's2', src: '/fotearte/40.jpg', title: 'Asunción de Noche', category: 'street', author: 'Valeria Ortiz', date: '2024' },
+        { id: 's3', src: '/fotearte/175.jpg', title: 'El Vendedor', category: 'street', author: 'Tomás Rojas', date: '2023' },
+        { id: 's4', src: '/fotearte/121.jpg', title: 'Paseo de la Galería', category: 'street', author: 'Camila Duarte', date: '2024' },
+        { id: 's5', src: '/fotearte/120.jpg', title: 'Lluvia Urbana', category: 'street', author: 'Fernando López', date: '2023' },
+        { id: 's6', src: '/fotearte/118.jpg', title: 'Reflejos', category: 'street', author: 'Patricia Giménez', date: '2024' },
+        { id: 's7', src: '/fotearte/68.jpg', title: 'Espera', category: 'street', author: 'Juan Vera', date: '2023' },
+        { id: 's8', src: '/fotearte/82.jpg', title: 'Movimiento', category: 'street', author: 'Lucía Cabrera', date: '2024' },
       ]
     },
     {
       id: 'productos',
-      title: 'Fotografía de Producto',
+      title: 'Fotografía Detalle',
       subtitle: 'El arte de vender con imágenes',
       description: 'Cada producto tiene una historia. Nosotros la contamos a través de composiciones cuidadas, iluminación precisa y atención al detalle.',
       layout: 'featured-duo',
       photos: [
-        { id: 'pr1', src: '/photos/producto-01.jpg', title: 'Reloj de Lujo', category: 'productos', author: 'Marcos Silva', date: '2024' },
-        { id: 'pr2', src: '/photos/producto-02.jpg', title: 'Cosmética Natural', category: 'productos', author: 'Isabel Aquino', date: '2024' },
-        { id: 'pr3', src: '/photos/producto-03.jpg', title: 'Joyería Artesanal', category: 'productos', author: 'Héctor Cardozo', date: '2023' },
-        { id: 'pr4', src: '/photos/producto-04.jpg', title: 'Gastronomía', category: 'productos', author: 'Mónica Espínola', date: '2024' },
-        { id: 'pr5', src: '/photos/producto-05.jpg', title: 'Moda', category: 'productos', author: 'Ricardo Fleitas', date: '2023' },
-        { id: 'pr6', src: '/photos/producto-06.jpg', title: 'Artesanía', category: 'productos', author: 'Gabriel Paredes', date: '2024' },
-        { id: 'pr7', src: '/photos/producto-07.jpg', title: 'Tecnología', category: 'productos', author: 'Daniela Ortega', date: '2023' },
-        { id: 'pr8', src: '/photos/producto-08.jpg', title: 'Bebidas', category: 'productos', author: 'Martín Benítez', date: '2024' },
+        { id: 'pr1', src: '/fotearte/200.jpg', title: 'Reloj de Lujo', category: 'productos', author: 'Marcos Silva', date: '2024' },
+        { id: 'pr2', src: '/fotearte/109.jpg', title: 'Cosmética Natural', category: 'productos', author: 'Isabel Aquino', date: '2024' },
+        { id: 'pr3', src: '/fotearte/174.jpg', title: 'Joyería Artesanal', category: 'productos', author: 'Héctor Cardozo', date: '2023' },
+        { id: 'pr4', src: '/fotearte/173.jpg', title: 'Gastronomía', category: 'productos', author: 'Mónica Espínola', date: '2024' },
+        { id: 'pr5', src: '/fotearte/116.jpg', title: 'Moda', category: 'productos', author: 'Ricardo Fleitas', date: '2023' },
+        { id: 'pr6', src: '/fotearte/146.jpg', title: 'Artesanía', category: 'productos', author: 'Gabriel Paredes', date: '2024' },
+        { id: 'pr7', src: '/fotearte/46.jpg', title: 'Tecnología', category: 'productos', author: 'Daniela Ortega', date: '2023' },
+        { id: 'pr8', src: '/fotearte/134.jpg', title: 'Bebidas', category: 'productos', author: 'Martín Benítez', date: '2024' },
       ]
     },
     {
       id: 'eventos',
       title: 'Eventos',
       subtitle: 'Momentos que perduran',
-      description: 'Bodas, conciertos, celebraciones. Capturamos la emoción y la energía de cada momento especial para que viva para siempre.',
+      description: 'Capturamos la emoción y la energía de cada momento especial para que viva para siempre. ',
       layout: 'horizontal',
       photos: [
-        { id: 'e1', src: '/photos/evento-01.jpg', title: 'Boda en el Campo', category: 'eventos', author: 'Patricia Giménez', date: '2024' },
-        { id: 'e2', src: '/photos/evento-02.jpg', title: 'Concierto Rock', category: 'eventos', author: 'Juan Vera', date: '2024' },
-        { id: 'e3', src: '/photos/evento-03.jpg', title: 'Festival Cultural', category: 'eventos', author: 'Lucía Cabrera', date: '2023' },
-        { id: 'e4', src: '/photos/evento-04.jpg', title: 'Fiesta de 15', category: 'eventos', author: 'Andrés Mendoza', date: '2024' },
-        { id: 'e5', src: '/photos/evento-05.jpg', title: 'Corporativo', category: 'eventos', author: 'Valeria Ortiz', date: '2023' },
-        { id: 'e6', src: '/photos/evento-06.jpg', title: 'Graduación', category: 'eventos', author: 'Tomás Rojas', date: '2024' },
+        { id: 'e1', src: '/fotearte/55.jpg', title: 'Boda en el Campo', category: 'eventos', author: 'Patricia Giménez', date: '2024' },
+        { id: 'e2', src: '/fotearte/53.jpg', title: 'Concierto Rock', category: 'eventos', author: 'Juan Vera', date: '2024' },
+        { id: 'e3', src: '/fotearte/54.jpg', title: 'Festival Cultural', category: 'eventos', author: 'Lucía Cabrera', date: '2023' },
+        { id: 'e4', src: '/fotearte/147.jpg', title: 'Fiesta de 15', category: 'eventos', author: 'Andrés Mendoza', date: '2024' },
+        { id: 'e5', src: '/fotearte/166.jpg', title: 'Corporativo', category: 'eventos', author: 'Valeria Ortiz', date: '2023' },
+        { id: 'e6', src: '/fotearte/168.jpg', title: 'Graduación', category: 'eventos', author: 'Tomás Rojas', date: '2024' },
+        { id: 'e6', src: '/fotearte/186.jpg', title: 'Graduación', category: 'eventos', author: 'Tomás Rojas', date: '2024' },
       ]
     },
     {
@@ -131,11 +132,11 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Flora y fauna paraguaya en su hábitat natural. Paciencia, respeto y el momento perfecto para capturar la vida silvestre.',
       layout: 'hero-grid',
       photos: [
-        { id: 'n1', src: '/photos/naturaleza-01.jpg', title: 'Tucán', category: 'naturaleza', author: 'Elena Ferreira', date: '2024', featured: true },
-        { id: 'n2', src: '/photos/naturaleza-02.jpg', title: 'Orquídea Silvestre', category: 'naturaleza', author: 'Gabriel Paredes', date: '2024' },
-        { id: 'n3', src: '/photos/naturaleza-03.jpg', title: 'Yacaré', category: 'naturaleza', author: 'Isabel Aquino', date: '2023' },
-        { id: 'n4', src: '/photos/naturaleza-04.jpg', title: 'Mariposa Azul', category: 'naturaleza', author: 'Diego Acosta', date: '2024' },
-        { id: 'n5', src: '/photos/naturaleza-05.jpg', title: 'Carpincho', category: 'naturaleza', author: 'Roberto Núñez', date: '2023' },
+        { id: 'n1', src: '/fotearte/74.jpg', title: 'Tucán', category: 'naturaleza', author: 'Elena Ferreira', date: '2024', featured: true },
+        { id: 'n2', src: '/fotearte/87.jpg', title: 'Orquídea Silvestre', category: 'naturaleza', author: 'Gabriel Paredes', date: '2024' },
+        { id: 'n3', src: '/fotearte/4.jpg', title: 'Yacaré', category: 'naturaleza', author: 'Isabel Aquino', date: '2023' },
+        { id: 'n4', src: '/fotearte/37.jpg', title: 'Mariposa Azul', category: 'naturaleza', author: 'Diego Acosta', date: '2024' },
+        { id: 'n5', src: '/fotearte/21.jpg', title: 'Carpincho', category: 'naturaleza', author: 'Roberto Núñez', date: '2023' },
       ]
     }
   ]
@@ -149,9 +150,9 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
 // Featured photos para el hero
 async function getFeaturedPhotos(): Promise<Photo[]> {
   return [
-    { id: 'f1', src: '/photos/featured-01.jpg', title: 'Obra Destacada', category: 'featured', author: 'María González', date: '2024' },
-    { id: 'f2', src: '/photos/featured-02.jpg', title: 'Selección Editorial', category: 'featured', author: 'Carlos Benítez', date: '2024' },
-    { id: 'f3', src: '/photos/featured-03.jpg', title: 'Mejor del Mes', category: 'featured', author: 'Ana Villalba', date: '2024' },
+    { id: 'f1', src: '/gallery/archivo-personal.jpg', title: 'Archivo personal', category: 'featured', author: 'Manuel Pellón - Yaguarón, Paraguay', date: '2008' },
+    { id: 'f2', src: '/gallery/luna-y-el-control-remoto.jpg', title: 'Luna y el control remoto.', category: 'featured', author: 'Manuel Pellón - Asunción, Paraguay', date: '2007' },
+    { id: 'f3', src: '/gallery/el-rio-que-nos-separaba.jpg', title: ' El río que nos separaba (y nos unía)', category: 'featured', author: "Manuel Pellón - Chaco'i, Paraguay", date: '2013' },
   ]
 }
 
@@ -179,24 +180,12 @@ export default async function GalleryPage() {
               </h2>
               <p className="text-neutral-400 font-light text-lg leading-relaxed">
                 Cada fotografía en esta galería representa el trabajo, la dedicación y la visión 
-                única de nuestra comunidad. Desde alumnos en sus primeros pasos hasta profesionales 
+                única de nuestra comunidad. Tanto alumnos en sus primeros pasos hasta profesionales 
                 consolidados, todos comparten la misma pasión: contar historias a través de la luz.
               </p>
             </div>
             
             <div className="grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <p className="text-4xl md:text-5xl font-semibold text-white mb-2">{totalPhotos}+</p>
-                <p className="text-neutral-500 font-light text-sm">Fotografías</p>
-              </div>
-              <div className="text-center">
-                <p className="text-4xl md:text-5xl font-semibold text-white mb-2">{totalAuthors}</p>
-                <p className="text-neutral-500 font-light text-sm">Fotógrafos</p>
-              </div>
-              <div className="text-center">
-                <p className="text-4xl md:text-5xl font-semibold text-white mb-2">{sections.length}</p>
-                <p className="text-neutral-500 font-light text-sm">Categorías</p>
-              </div>
             </div>
           </div>
         </div>
@@ -210,7 +199,7 @@ export default async function GalleryPage() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="flex-shrink-0 px-4 py-2 text-sm font-light text-neutral-400 hover:text-orange-600 transition-colors duration-200 whitespace-nowrap"
+                className="shrink-0 px-4 py-2 text-sm font-light text-neutral-400 hover:text-orange-600 transition-colors duration-200 whitespace-nowrap"
               >
                 {section.title}
               </a>

@@ -43,7 +43,7 @@ function HeroGridLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoClic
       {/* Imagen hero */}
       {featured && (
         <div 
-          className="relative aspect-[4/5] lg:aspect-auto lg:row-span-2 cursor-pointer group overflow-hidden rounded-lg"
+          className="relative aspect-4/5 lg:aspect-auto lg:row-span-2 cursor-pointer group overflow-hidden rounded-lg"
           onClick={() => onPhotoClick(featured)}
         >
           <Image
@@ -52,7 +52,7 @@ function HeroGridLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoClic
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <p className="text-white font-semibold">{featured.title}</p>
             <p className="text-white/70 text-sm font-light">{featured.author}</p>
@@ -91,7 +91,7 @@ function MasonryLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoClick
         <div 
           key={photo.id}
           className={`break-inside-avoid cursor-pointer group overflow-hidden rounded-lg ${
-            index % 3 === 0 ? 'aspect-[3/4]' : index % 3 === 1 ? 'aspect-square' : 'aspect-[4/3]'
+            index % 3 === 0 ? 'aspect-3/4' : index % 3 === 1 ? 'aspect-square' : 'aspect-4/3'
           } relative`}
           onClick={() => onPhotoClick(photo)}
         >
@@ -101,7 +101,7 @@ function MasonryLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoClick
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <p className="text-white text-sm font-semibold">{photo.title}</p>
           </div>
@@ -124,10 +124,10 @@ function HorizontalLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoCl
         {photos.map((photo) => (
           <div 
             key={photo.id}
-            className="flex-shrink-0 w-[300px] md:w-[400px] lg:w-[500px] snap-center cursor-pointer group"
+            className="shrink-0 w-[300px] md:w-[400px] lg:w-[500px] snap-center cursor-pointer group"
             onClick={() => onPhotoClick(photo)}
           >
-            <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
+            <div className="relative aspect-3/2 overflow-hidden rounded-lg">
               <Image
                 src={photo.src}
                 alt={photo.title}
@@ -144,8 +144,8 @@ function HorizontalLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoCl
       </div>
       
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-6 w-20 bg-gradient-to-r from-neutral-950 to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-6 w-20 bg-gradient-to-l from-neutral-950 to-transparent pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-6 w-20 bg-linear-to-r from-neutral-950 to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-6 w-20 bg-linear-to-l from-neutral-950 to-transparent pointer-events-none" />
     </div>
   )
 }
@@ -161,7 +161,7 @@ function FeaturedDuoLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoC
           <div 
             key={photo.id}
             className={`relative cursor-pointer group overflow-hidden rounded-lg ${
-              index === 0 ? 'aspect-[4/5]' : 'aspect-[4/5] md:mt-12'
+              index === 0 ? 'aspect-4/5' : 'aspect-4/5 md:mt-12'
             }`}
             onClick={() => onPhotoClick(photo)}
           >
@@ -171,7 +171,7 @@ function FeaturedDuoLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoC
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">
               <p className="text-white text-xl font-semibold mb-1">{photo.title}</p>
               <p className="text-white/70 font-light">{photo.author}</p>
@@ -210,7 +210,7 @@ function CinemaLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoClick:
       {photos.slice(0, 4).map((photo, index) => (
         <div 
           key={photo.id}
-          className="relative aspect-[21/9] cursor-pointer group overflow-hidden rounded-lg"
+          className="relative aspect-21/9 cursor-pointer group overflow-hidden rounded-lg"
           onClick={() => onPhotoClick(photo)}
         >
           <Image
@@ -219,7 +219,7 @@ function CinemaLayout({ photos, onPhotoClick }: { photos: Photo[], onPhotoClick:
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-black/70 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 top-0 flex flex-col justify-center p-8 md:p-12">
             <span className="text-orange-500 text-sm font-semibold mb-2">0{index + 1}</span>
             <p className="text-white text-2xl md:text-3xl font-semibold mb-2">{photo.title}</p>

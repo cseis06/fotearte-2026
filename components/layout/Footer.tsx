@@ -88,9 +88,9 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Menú */}
+            {/* Navegación */}
             <div className="flex flex-col gap-4">
-              <h3 className="font-semibold text-gray-900 text-base md:text-lg">Menú</h3>
+              <h3 className="font-semibold text-gray-900 text-base md:text-lg">Navegación</h3>
               <ul className="flex flex-col gap-2">
                 {menuItems.map((item, index) => (
                   <li key={index}>
@@ -108,7 +108,7 @@ const Footer = () => {
             {/* Redes Sociales */}
             <div className="flex flex-col gap-4">
               <h3 className="font-semibold text-gray-900 text-lg">Nuestras Redes</h3>
-              <div className="flex items-center gap-3">
+              <div className="flex md:flex-col lg:flex-row items-start lg:items-center gap-3">
                 {redesSociales.map((red, index) => (
                   <a
                     key={index}
