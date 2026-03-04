@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={poppins.variable}>
+    <html lang="es" className={`${poppins.variable} overflow-x-hidden`}>
       <head>
         <script
           type="application/ld+json"
@@ -40,7 +40,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
-      <body className="font-poppins antialiased bg-neutral-950 text-white">
+      <body 
+        className="font-poppins antialiased bg-neutral-950 text-white overflow-x-hidden"
+        suppressHydrationWarning
+      >
         <Header />
         {children}
         <div className='fixed bottom-5 right-5 z-20 w-16 h-16 rounded-full bg-green-500'>

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
+import Image, { StaticImageData } from 'next/image'
 import { Icon } from '@iconify/react'
 import gsap from 'gsap'
 
@@ -11,11 +11,11 @@ interface Camera {
   name: string
   brand: string
   category: 'dslr' | 'mirrorless' | 'cinema' | 'lens' | 'accessory'
-  image: string
-  pricePerDay: number
+  image: StaticImageData | string
   specs: string[]
   available: boolean
-  featured?: boolean
+  stock?: number
+  note?: string
 }
 
 interface Category {
@@ -29,14 +29,9 @@ interface CamerasCatalogProps {
   categories: Category[]
 }
 
-// Función para formatear precio
-function formatPrice(price: number): string {
-  return new Intl.NumberFormat('es-PY').format(price)
-}
-
 // Componente de tarjeta de cámara
 function CameraCard({ camera, index }: { camera: Camera; index: number }) {
-  const cardRef = useRef<HTMLAnchorElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (cardRef.current) {
@@ -54,31 +49,48 @@ function CameraCard({ camera, index }: { camera: Camera; index: number }) {
     }
   }, [index])
 
+  // Crear mensaje de WhatsApp
+  const whatsappMessage = encodeURIComponent(
+    `Hola! Quisiera consultar sobre el alquiler de: ${camera.brand} ${camera.name}`
+  )
+  const whatsappUrl = `https://wa.me/595973497799?text=${whatsappMessage}`
+
   return (
-    <Link 
+    <div 
       ref={cardRef}
-      href={`/cameras/${camera.id}`}
-      className="group block bg-neutral-950 rounded-2xl overflow-hidden border border-neutral-900 hover:border-neutral-800 transition-colors duration-300 opacity-0"
+      className={`group bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800 transition-colors duration-300 opacity-0 ${
+        camera.available ? 'hover:border-neutral-700' : 'opacity-60'
+      }`}
     >
       {/* Imagen */}
       <div className="relative aspect-[4/3] bg-neutral-800 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-neutral-800 to-neutral-900">
-          <Icon 
-            icon={camera.category === 'lens' ? 'mdi:circle-outline' : 'mdi:camera-outline'} 
-            className="w-16 h-16 text-neutral-700 group-hover:scale-110 transition-transform duration-500" 
+        {typeof camera.image === 'string' ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-neutral-800 to-neutral-900">
+            <Icon 
+              icon={camera.category === 'lens' ? 'mdi:circle-outline' : 'mdi:camera-outline'} 
+              className="w-16 h-16 text-neutral-700 group-hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+        ) : (
+          <Image
+            src={camera.image}
+            alt={`${camera.brand} ${camera.name}`}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500 bg-white p-5"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
-        </div>
+        )}
         
         {/* Badges */}
-        <div className="absolute top-3 left-3 flex gap-2">
-          {camera.featured && (
-            <span className="px-2 py-1 bg-orange-600 text-white text-xs font-semibold rounded">
-              Destacado
-            </span>
-          )}
+        <div className="absolute top-3 left-3 flex flex-col gap-2">
           {!camera.available && (
             <span className="px-2 py-1 bg-neutral-700 text-neutral-300 text-xs font-semibold rounded">
               No disponible
+            </span>
+          )}
+          {camera.available && camera.stock && camera.stock > 1 && (
+            <span className="px-2 py-1 bg-orange-600 text-white text-xs font-semibold rounded">
+              {camera.stock} disponibles
             </span>
           )}
         </div>
@@ -91,14 +103,15 @@ function CameraCard({ camera, index }: { camera: Camera; index: number }) {
       {/* Contenido */}
       <div className="p-5">
         <div className="mb-3">
-          <h3 className="text-white font-semibold text-lg group-hover:text-orange-600 transition-colors duration-300">
+          <h3 className="text-white font-semibold text-lg">
             {camera.brand} {camera.name}
           </h3>
           <p className="text-neutral-500 text-sm font-light capitalize">
-            {camera.category === 'lens' ? 'Lente' : 
+            {camera.category === 'lens' ? 'Objetivo' : 
              camera.category === 'accessory' ? 'Accesorio' :
              camera.category === 'cinema' ? 'Cámara Cinema' :
-             camera.category.toUpperCase()}
+             camera.category === 'mirrorless' ? 'Mirrorless' :
+             'Cámara DSLR'}
           </p>
         </div>
 
@@ -112,30 +125,44 @@ function CameraCard({ camera, index }: { camera: Camera; index: number }) {
           ))}
         </ul>
 
-        {/* Precio */}
-        <div className="flex items-end justify-between pt-4 border-t border-neutral-800">
-          <div>
-            <p className="text-neutral-500 text-xs font-light">Desde</p>
-            <p className="text-white font-semibold text-xl">
-              ₲{formatPrice(camera.pricePerDay)}
-              <span className="text-neutral-500 text-sm font-light">/día</span>
-            </p>
-          </div>
-          
-          <span className="flex items-center gap-1 text-orange-600 text-sm font-semibold group-hover:gap-2 transition-all duration-300">
-            Ver detalles
-            <Icon icon="mdi:arrow-right" className="w-4 h-4" />
-          </span>
+        {/* Nota si existe */}
+        {camera.note && (
+          <p className="text-amber-500/80 text-xs font-light mb-4 flex items-center gap-1">
+            <Icon icon="mdi:information-outline" className="w-4 h-4" />
+            {camera.note}
+          </p>
+        )}
+
+        {/* Botón de acción */}
+        <div className="pt-4 border-t border-neutral-800">
+          {camera.available ? (
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full transition-colors duration-300"
+            >
+              <Icon icon="mdi:whatsapp" className="w-5 h-5" />
+              Consultar
+            </a>
+          ) : (
+            <button
+              disabled
+              className="flex items-center justify-center gap-2 w-full py-3 bg-neutral-800 text-neutral-500 font-light rounded-full cursor-not-allowed"
+            >
+              No disponible
+            </button>
+          )}
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 
 export default function CamerasCatalog({ cameras, categories }: CamerasCatalogProps) {
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [sortBy, setSortBy] = useState<'price-asc' | 'price-desc' | 'name'>('name')
+  const [showAvailableOnly, setShowAvailableOnly] = useState(false)
   const catalogRef = useRef<HTMLDivElement>(null)
 
   // Filtrar cámaras
@@ -145,16 +172,21 @@ export default function CamerasCatalog({ cameras, categories }: CamerasCatalogPr
       const matchesSearch = searchQuery === '' || 
         camera.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         camera.brand.toLowerCase().includes(searchQuery.toLowerCase())
-      return matchesCategory && matchesSearch
+      const matchesAvailability = !showAvailableOnly || camera.available
+      return matchesCategory && matchesSearch && matchesAvailability
     })
     .sort((a, b) => {
-      if (sortBy === 'price-asc') return a.pricePerDay - b.pricePerDay
-      if (sortBy === 'price-desc') return b.pricePerDay - a.pricePerDay
+      // Primero los disponibles
+      if (a.available && !b.available) return -1
+      if (!a.available && b.available) return 1
+      // Luego por nombre
       return a.name.localeCompare(b.name)
     })
 
-  const featuredCameras = filteredCameras.filter(c => c.featured)
-  const regularCameras = filteredCameras.filter(c => !c.featured)
+  // Separar cámaras y lentes disponibles
+  const availableCameras = filteredCameras.filter(c => c.available && c.category !== 'lens')
+  const availableLenses = filteredCameras.filter(c => c.available && c.category === 'lens')
+  const unavailableItems = filteredCameras.filter(c => !c.available)
 
   // Animación al cambiar filtros
   useEffect(() => {
@@ -165,7 +197,7 @@ export default function CamerasCatalog({ cameras, categories }: CamerasCatalogPr
         { opacity: 1, duration: 0.3 }
       )
     }
-  }, [activeCategory, searchQuery, sortBy])
+  }, [activeCategory, searchQuery, showAvailableOnly])
 
   return (
     <section className="py-16 border-t border-neutral-900">
@@ -195,7 +227,7 @@ export default function CamerasCatalog({ cameras, categories }: CamerasCatalogPr
             ))}
           </div>
 
-          {/* Búsqueda y ordenar */}
+          {/* Búsqueda y filtro disponibilidad */}
           <div className="flex gap-3">
             {/* Búsqueda */}
             <div className="relative">
@@ -208,20 +240,24 @@ export default function CamerasCatalog({ cameras, categories }: CamerasCatalogPr
                 placeholder="Buscar equipo..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full sm:w-64 pl-10 pr-4 py-2.5 bg-neutral-950 border border-neutral-800 rounded-full text-white text-sm font-light placeholder:text-neutral-600 focus:outline-none focus:border-orange-600 transition-colors duration-300"
+                className="w-full sm:w-64 pl-10 pr-4 py-2.5 bg-neutral-900 border border-neutral-800 rounded-full text-white text-sm font-light placeholder:text-neutral-600 focus:outline-none focus:border-orange-600 transition-colors duration-300"
               />
             </div>
 
-            {/* Ordenar */}
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-              className="px-4 py-2.5 bg-neutral-950 border border-neutral-800 rounded-full text-neutral-400 text-sm font-light focus:outline-none focus:border-orange-600 transition-colors duration-300 cursor-pointer"
+            {/* Solo disponibles */}
+            <button
+              onClick={() => setShowAvailableOnly(!showAvailableOnly)}
+              className={`
+                px-4 py-2.5 rounded-full text-sm font-light border transition-colors duration-300
+                ${showAvailableOnly 
+                  ? 'bg-green-600/20 border-green-600 text-green-500' 
+                  : 'bg-transparent border-neutral-800 text-neutral-400 hover:border-neutral-700'
+                }
+              `}
             >
-              <option value="name">Nombre</option>
-              <option value="price-asc">Menor precio</option>
-              <option value="price-desc">Mayor precio</option>
-            </select>
+              <span className="hidden sm:inline">Solo disponibles</span>
+              <Icon icon="mdi:check-circle" className="w-5 h-5 sm:hidden" />
+            </button>
           </div>
         </div>
 
@@ -237,6 +273,7 @@ export default function CamerasCatalog({ cameras, categories }: CamerasCatalogPr
                 onClick={() => {
                   setActiveCategory('all')
                   setSearchQuery('')
+                  setShowAvailableOnly(false)
                 }}
                 className="mt-4 text-orange-600 text-sm font-semibold hover:underline"
               >
@@ -245,37 +282,62 @@ export default function CamerasCatalog({ cameras, categories }: CamerasCatalogPr
             </div>
           ) : (
             <>
-              {/* Destacados */}
-              {featuredCameras.length > 0 && activeCategory === 'all' && searchQuery === '' && (
+              {/* Cámaras disponibles */}
+              {availableCameras.length > 0 && (activeCategory === 'all' || activeCategory === 'dslr') && (
                 <div className="mb-16">
-                  <h2 className="text-2xl font-semibold text-white mb-8">
-                    Equipos destacados
-                  </h2>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {featuredCameras.map((camera, index) => (
+                  <div className="flex items-center justify-between mb-8">
+                    <h2 className="text-2xl font-semibold text-white flex items-center gap-3">
+                      <Icon icon="mdi:camera" className="w-6 h-6 text-orange-600" />
+                      Cámaras
+                    </h2>
+                    <p className="text-neutral-500 font-light text-sm">
+                      {availableCameras.reduce((acc, c) => acc + (c.stock || 1), 0)} disponibles
+                    </p>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {availableCameras.map((camera, index) => (
                       <CameraCard key={camera.id} camera={camera} index={index} />
                     ))}
                   </div>
                 </div>
               )}
 
-              {/* Todos los equipos */}
-              <div>
-                <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-2xl font-semibold text-white">
-                    {activeCategory === 'all' && searchQuery === '' ? 'Todos los equipos' : 'Resultados'}
-                  </h2>
-                  <p className="text-neutral-500 font-light text-sm">
-                    {filteredCameras.length} {filteredCameras.length === 1 ? 'equipo' : 'equipos'}
-                  </p>
+              {/* Objetivos disponibles */}
+              {availableLenses.length > 0 && (activeCategory === 'all' || activeCategory === 'lens') && (
+                <div className="mb-16">
+                  <div className="flex items-center justify-between mb-8">
+                    <h2 className="text-2xl font-semibold text-white flex items-center gap-3">
+                      <Icon icon="mdi:circle-outline" className="w-6 h-6 text-orange-600" />
+                      Objetivos
+                    </h2>
+                    <p className="text-neutral-500 font-light text-sm">
+                      {availableLenses.reduce((acc, c) => acc + (c.stock || 1), 0)} disponibles
+                    </p>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {availableLenses.map((camera, index) => (
+                      <CameraCard key={camera.id} camera={camera} index={index} />
+                    ))}
+                  </div>
                 </div>
-                
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {(activeCategory === 'all' && searchQuery === '' ? regularCameras : filteredCameras).map((camera, index) => (
-                    <CameraCard key={camera.id} camera={camera} index={index} />
-                  ))}
+              )}
+
+              {/* No disponibles */}
+              {unavailableItems.length > 0 && !showAvailableOnly && (
+                <div>
+                  <div className="flex items-center justify-between mb-8">
+                    <h2 className="text-xl font-semibold text-neutral-500 flex items-center gap-3">
+                      <Icon icon="mdi:clock-outline" className="w-5 h-5" />
+                      No disponibles
+                    </h2>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {unavailableItems.map((camera, index) => (
+                      <CameraCard key={camera.id} camera={camera} index={index} />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </>
           )}
         </div>

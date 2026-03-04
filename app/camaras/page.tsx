@@ -7,36 +7,44 @@ import CamerasCatalog from '@/components/cameras/CamerasCatalog'
 // Importar imagen de fondo
 import HeroBg from '../../public/bg/cameras.png'
 
+// Importar imágenes de cámaras
+import CanonT6Img from '../../public/cameras/canon-eos-rebel-t6.jpg'
+import CanonT5Img from '../../public/cameras/canon-t5.webp'
+import Canon80DImg from '../../public/cameras/canon-80d.jpg'
+import CanonT3Img from '../../public/cameras/canon-t3.avif'
+import CanonT2iImg from '../../public/cameras/canon-eos-rebel-t2i.jpg'
+
+// Importar imágenes de objetivos
+import EFS1855Img from '../../public/cameras/efs-18-55mm.webp'
+import EFS1022Img from '../../public/cameras/efs-10-22mm.jpg'
+import Tokina1735Img from '../../public/cameras/tokina-17-35mm.webp'
+import EF50Img from '../../public/cameras/ef-50mm-f14.jpg'
+import EFS55250Img from '../../public/cameras/efs-55-250mm.webp'
+
+// Importar imágenes de Sony (no disponibles)
+import SonyA7IVImg from '../../public/cameras/sony-a7iv.webp'
+import SonyFX3Img from '../../public/cameras/sony-fx3.webp'
+import SonyGM70200Img from '../../public/cameras/sony-gm-70200.jpg'
+
 export const metadata: Metadata = {
   title: 'Alquiler de Cámaras y Equipos Fotográficos',
-  description: 'Alquilá cámaras profesionales Canon, Sony, Nikon y más en Paraguay. Equipos de fotografía y video por día, fin de semana o semana. Lentes, luces, estabilizadores. Entrega en Asunción y todo el país.',
+  description: 'Alquilá cámaras profesionales Canon y objetivos en Paraguay. Equipos de fotografía para clases y proyectos. Disponible en Asunción y todo el país.',
   
   keywords: [
     'alquiler cámaras Paraguay',
     'alquiler equipos fotográficos',
     'rent camera Asunción',
     'alquiler cámaras profesionales',
-    
     'alquiler Canon Paraguay',
-    'alquiler Sony Paraguay', 
-    'alquiler Nikon Paraguay',
-    'alquiler Blackmagic',
-    
     'alquiler lentes fotográficos',
-    'alquiler cámara mirrorless',
     'alquiler cámara DSLR',
-    'alquiler cámara cine',
-    'alquiler estabilizador gimbal',
-    'alquiler luces fotografía',
-  
     'alquiler cámaras Asunción',
     'alquiler equipos Ciudad del Este',
-    'rent camera Paraguay',
   ],
 
   openGraph: {
     title: 'Alquiler de Cámaras Profesionales | FoteArte Paraguay',
-    description: 'Canon, Sony, Nikon y más. Alquilá equipos profesionales de fotografía y video por día o semana. Entrega en todo Paraguay.',
+    description: 'Canon, lentes y más. Alquilá equipos profesionales de fotografía por día o semana. Disponible en todo Paraguay.',
     url: 'https://fotearte.com.py/cameras',
     images: [
       {
@@ -52,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Alquiler de Cámaras Profesionales | FoteArte',
-    description: 'Canon, Sony, Nikon y más. Equipos profesionales por día o semana.',
+    description: 'Canon, lentes y más. Equipos profesionales por día o semana.',
     images: ['/og-cameras.jpg'],
   },
 
@@ -66,11 +74,11 @@ interface Camera {
   name: string
   brand: string
   category: 'dslr' | 'mirrorless' | 'cinema' | 'lens' | 'accessory'
-  image: string
-  pricePerDay: number
+  image: any // StaticImageData
   specs: string[]
   available: boolean
-  featured?: boolean
+  stock?: number
+  note?: string
 }
 
 interface Category {
@@ -81,210 +89,145 @@ interface Category {
 
 async function getCameras(): Promise<Camera[]> {
   const cameras: Camera[] = [
+    // ============================================
+    // CÁMARAS CANON
+    // ============================================
     {
-      id: 'canon-r5',
-      name: 'EOS R5',
+      id: 'canon-eos-rebel-t6',
+      name: 'EOS Rebel T6',
       brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/canon-r5.jpg',
-      pricePerDay: 180000,
-      specs: ['45MP Full Frame', '8K Video', 'IBIS 8 stops'],
+      category: 'dslr',
+      image: CanonT6Img,
+      specs: ['18MP APS-C', 'Video Full HD', 'ISO 100-6400'],
       available: true,
-      featured: true
+      stock: 4
     },
+    {
+      id: 'canon-t5',
+      name: 'EOS Rebel T5',
+      brand: 'Canon',
+      category: 'dslr',
+      image: CanonT5Img,
+      specs: ['18MP APS-C', 'Video Full HD', '9 puntos AF'],
+      available: true,
+      stock: 1
+    },
+    {
+      id: 'canon-80d',
+      name: 'EOS 80D',
+      brand: 'Canon',
+      category: 'dslr',
+      image: Canon80DImg,
+      specs: ['24.2MP APS-C', 'Video Full HD 60fps', '45 puntos AF'],
+      available: true,
+      stock: 1
+    },
+    {
+      id: 'canon-t3',
+      name: 'EOS Rebel T3',
+      brand: 'Canon',
+      category: 'dslr',
+      image: CanonT3Img,
+      specs: ['12.2MP APS-C', 'Video HD 720p', 'Compacta y liviana'],
+      available: true,
+      stock: 1
+    },
+    {
+      id: 'canon-eos-rebel-t2i',
+      name: 'EOS Rebel T2i',
+      brand: 'Canon',
+      category: 'dslr',
+      image: CanonT2iImg,
+      specs: ['18MP APS-C', 'Video Full HD', 'ISO 100-6400'],
+      available: true,
+      stock: 3
+    },
+
+    // ============================================
+    // OBJETIVOS
+    // ============================================
+    {
+      id: 'efs-18-55mm',
+      name: 'EF-S 18-55mm f/3.5-5.6',
+      brand: 'Canon',
+      category: 'lens',
+      image: EFS1855Img,
+      specs: ['Zoom estándar', 'Apertura f/3.5-5.6', 'Mount EF-S'],
+      available: true,
+      stock: 6
+    },
+    {
+      id: 'efs-10-22mm',
+      name: 'EF-S 10-22mm f/3.5-4.5',
+      brand: 'Canon',
+      category: 'lens',
+      image: EFS1022Img,
+      specs: ['Ultra gran angular', 'Apertura f/3.5-4.5', 'Mount EF-S'],
+      available: true,
+      stock: 1
+    },
+    {
+      id: 'tokina-17-35mm',
+      name: 'AT-X 17-35mm f/4 Pro FX',
+      brand: 'Tokina',
+      category: 'lens',
+      image: Tokina1735Img,
+      specs: ['Gran angular', 'Apertura f/4 constante', 'Full Frame'],
+      available: true,
+      stock: 1
+    },
+    {
+      id: 'ef-50mm-f14',
+      name: 'EF 50mm f/1.4 USM',
+      brand: 'Canon',
+      category: 'lens',
+      image: EF50Img,
+      specs: ['Lente fijo 50mm', 'Apertura f/1.4', 'USM Autofocus'],
+      available: true,
+      stock: 2,
+      note: '1 unidad con problemas de enfoque'
+    },
+    {
+      id: 'efs-55-250mm',
+      name: 'EF-S 55-250mm f/4-5.6 IS',
+      brand: 'Canon',
+      category: 'lens',
+      image: EFS55250Img,
+      specs: ['Teleobjetivo', 'Estabilización de imagen', 'Mount EF-S'],
+      available: true,
+      stock: 2
+    },
+
+    // ============================================
+    // SONY (NO DISPONIBLES)
+    // ============================================
     {
       id: 'sony-a7iv',
       name: 'Alpha A7 IV',
-      brand: 'Canon',
+      brand: 'Sony',
       category: 'mirrorless',
-      image: '/cameras/sony-a7iv.jpg',
-      pricePerDay: 150000,
+      image: SonyA7IVImg,
       specs: ['33MP Full Frame', '4K 60fps', 'Eye AF avanzado'],
-      available: true,
-      featured: true
-    },
-    {
-      id: 'nikon-z8',
-      name: 'Z8',
-      brand: 'Nikon',
-      category: 'mirrorless',
-      image: '/cameras/nikon-z8.jpg',
-      pricePerDay: 200000,
-      specs: ['45.7MP Stacked', '8K N-RAW', '120fps 4K'],
-      available: true,
-      featured: true
-    },
-    {
-      id: 'canon-5d-iv',
-      name: 'EOS 5D Mark IV',
-      brand: 'Canon',
-      category: 'dslr',
-      image: '/cameras/canon-5d-iv.jpg',
-      pricePerDay: 120000,
-      specs: ['30.4MP Full Frame', '4K Video', 'Dual Pixel AF'],
-      available: true
+      available: false
     },
     {
       id: 'sony-fx3',
       name: 'FX3 Cinema Line',
       brand: 'Sony',
       category: 'cinema',
-      image: '/cameras/sony-fx3.jpg',
-      pricePerDay: 250000,
+      image: SonyFX3Img,
       specs: ['12.1MP Full Frame', '4K 120fps', 'S-Cinetone'],
       available: false
-    },
-    {
-      id: 'nikon-d850',
-      name: 'D850',
-      brand: 'Nikon',
-      category: 'dslr',
-      image: '/cameras/nikon-d850.jpg',
-      pricePerDay: 130000,
-      specs: ['45.7MP Full Frame', '4K UHD', '7fps continuo'],
-      available: true
-    },
-    {
-      id: 'canon-rf-2470',
-      name: 'RF 24-70mm f/2.8L IS USM',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/canon-rf-2470.jpg',
-      pricePerDay: 80000,
-      specs: ['Apertura f/2.8', 'Estabilización 5 stops', 'Mount RF'],
-      available: true
     },
     {
       id: 'sony-gm-70200',
       name: 'FE 70-200mm f/2.8 GM II',
       brand: 'Sony',
-      category: 'mirrorless',
-      image: '/cameras/sony-gm-70200.jpg',
-      pricePerDay: 90000,
+      category: 'lens',
+      image: SonyGM70200Img,
       specs: ['Apertura f/2.8', 'XD Linear Motors', 'Mount E'],
-      available: true
+      available: false
     },
-    {
-      id: 'ronin-rs3-pro',
-      name: 'RS 3 Pro',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/dji-rs3-pro.jpg',
-      pricePerDay: 70000,
-      specs: ['Carga 4.5kg', 'LiDAR Focus', 'Transmisión inalámbrica'],
-      available: true
-    },
-    {
-      id: 'godox-ad600',
-      name: 'AD600 Pro',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/godox-ad600.jpg',
-      pricePerDay: 50000,
-      specs: ['600W', 'TTL/HSS', 'Batería incluida'],
-      available: true
-    },
-    {
-      id: 'blackmagic-6k',
-      name: 'Pocket Cinema 6K Pro',
-      brand: 'Canon',
-      category: 'cinema',
-      image: '/cameras/blackmagic-6k.jpg',
-      pricePerDay: 180000,
-      specs: ['6K Super 35', '13 stops DR', 'ProRes/BRAW'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    },
-    {
-      id: 'sigma-art-35',
-      name: '35mm f/1.4 DG HSM Art',
-      brand: 'Canon',
-      category: 'mirrorless',
-      image: '/cameras/sigma-35-art.jpg',
-      pricePerDay: 45000,
-      specs: ['Apertura f/1.4', 'HSM Autofocus', 'Multi-mount'],
-      available: true
-    }
-
   ]
 
   return cameras
@@ -293,9 +236,8 @@ async function getCameras(): Promise<Camera[]> {
 // Categorías
 const categories: Category[] = [
   { id: 'all', label: 'Todos', icon: 'mdi:view-grid-outline' },
-  { id: 'mirrorless', label: 'Mirrorless', icon: 'mdi:camera-outline' },
-  { id: 'dslr', label: 'DSLR', icon: 'mdi:camera' },
-  { id: 'cinema', label: 'Cinema', icon: 'mdi:video-outline' },
+  { id: 'dslr', label: 'Cámaras', icon: 'mdi:camera' },
+  { id: 'lens', label: 'Objetivos', icon: 'mdi:circle-outline' },
 ]
 
 const jsonLd = {
@@ -308,7 +250,7 @@ const jsonLd = {
     url: 'https://fotearte.com.py',
   },
   serviceType: 'Camera Rental',
-  description: 'Alquiler de cámaras profesionales, lentes y accesorios de fotografía y video.',
+  description: 'Alquiler de cámaras profesionales, lentes y accesorios de fotografía.',
   areaServed: {
     '@type': 'Country',
     name: 'Paraguay',
@@ -321,23 +263,15 @@ const jsonLd = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Product',
-          name: 'Cámaras Mirrorless',
-          description: 'Canon, Sony, Nikon mirrorless',
+          name: 'Cámaras DSLR Canon',
+          description: 'Cámaras réflex Canon para aprendizaje y proyectos',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Product',
-          name: 'Cámaras DSLR',
-          description: 'Cámaras réflex profesionales',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Product',
-          name: 'Lentes',
+          name: 'Objetivos',
           description: 'Lentes de diversas focales y aperturas',
         },
       },
@@ -347,8 +281,8 @@ const jsonLd = {
 
 export default async function CamerasPage() {
   const cameras = await getCameras()
-  const totalEquipment = cameras.length
-  const brands = [...new Set(cameras.map(c => c.brand))].length
+  const availableCameras = cameras.filter(c => c.available)
+  const totalStock = availableCameras.reduce((acc, c) => acc + (c.stock || 1), 0)
 
   return (
     <>
@@ -386,18 +320,18 @@ export default async function CamerasPage() {
                 <span className="text-neutral-400 font-light"> para cada proyecto</span>
               </h1>
               <p className="text-neutral-300 font-light text-lg md:text-xl leading-relaxed mb-10">
-                Accedé a cámaras, lentes y accesorios de las mejores marcas del mundo. 
-                Alquiler por día, fin de semana o semana completa con entrega en todo Paraguay.
+                Accedé a cámaras y lentes de calidad para tus proyectos fotográficos. 
+                Disponibles para alumnos y público en general.
               </p>
 
               {/* Quick stats */}
               <div className="flex flex-wrap gap-10">
                 <div>
-                  <p className="text-4xl font-semibold text-white">{totalEquipment}+</p>
+                  <p className="text-4xl font-semibold text-white">{totalStock}+</p>
                   <p className="text-neutral-400 font-light text-sm">Equipos</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-semibold text-white">{brands}</p>
+                  <p className="text-4xl font-semibold text-white">2</p>
                   <p className="text-neutral-400 font-light text-sm">Marcas</p>
                 </div>
                 <div>
@@ -416,9 +350,11 @@ export default async function CamerasPage() {
                   <Icon icon="mdi:arrow-down" className="w-5 h-5" />
                 </a>
                 <Link
-                  href="/contacto"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white font-light rounded-full hover:border-orange-600 hover:text-orange-600 transition-colors duration-300"
+                  href="https://wa.me/595973497799?text=Hola! Quisiera consultar sobre el alquiler de equipos fotográficos"
+                  target="_blank"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white font-light rounded-full hover:border-green-500 hover:text-green-500 transition-colors duration-300"
                 >
+                  <Icon icon="mdi:whatsapp" className="w-5 h-5" />
                   Consultar disponibilidad
                 </Link>
               </div>
@@ -442,14 +378,14 @@ export default async function CamerasPage() {
         <section className="py-20 border-t border-neutral-900">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              ¿No encontrás lo que buscás?
+              ¿Querés alquilar un equipo?
             </h2>
             <p className="text-neutral-400 font-light mb-8">
-              Contactanos y te ayudamos a conseguir el equipo perfecto para tu proyecto.
+              Contactanos por WhatsApp para verificar disponibilidad y coordinar el retiro.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://wa.me/595973497799"
+                href="https://wa.me/595973497799?text=Hola! Quisiera alquilar un equipo fotográfico"
                 target="_blank"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-colors duration-300"
               >
@@ -476,7 +412,7 @@ export default async function CamerasPage() {
                 </div>
                 <h3 className="text-white font-semibold mb-2">Entrega y devolución</h3>
                 <p className="text-neutral-500 font-light text-sm">
-                  Retiro en sede o delivery a domicilio en Asunción y Gran Asunción. Envíos al interior.
+                  Retiro en sede o coordinamos entrega en Asunción y Gran Asunción.
                 </p>
               </div>
               
@@ -484,19 +420,19 @@ export default async function CamerasPage() {
                 <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
                   <Icon icon="mdi:shield-check-outline" className="w-6 h-6 text-orange-600" />
                 </div>
-                <h3 className="text-white font-semibold mb-2">Seguro incluido</h3>
+                <h3 className="text-white font-semibold mb-2">Depósito de garantía</h3>
                 <p className="text-neutral-500 font-light text-sm">
-                  Todos nuestros equipos cuentan con seguro básico. Cobertura extendida disponible.
+                  Se requiere depósito de garantía reembolsable al devolver el equipo en condiciones.
                 </p>
               </div>
               
               <div className="text-center md:text-left">
                 <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-800 mx-auto md:mx-0 mb-4">
-                  <Icon icon="mdi:headset" className="w-6 h-6 text-orange-600" />
+                  <Icon icon="mdi:school-outline" className="w-6 h-6 text-orange-600" />
                 </div>
-                <h3 className="text-white font-semibold mb-2">Soporte técnico</h3>
+                <h3 className="text-white font-semibold mb-2">Alumnos FoteArte</h3>
                 <p className="text-neutral-500 font-light text-sm">
-                  Asistencia durante todo el período de alquiler. Reemplazo inmediato ante fallas.
+                  Descuentos especiales para alumnos activos de nuestros cursos de fotografía.
                 </p>
               </div>
             </div>

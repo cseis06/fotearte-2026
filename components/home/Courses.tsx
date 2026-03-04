@@ -1,10 +1,14 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Inicial from '../../public/courses/inicial.jpg'
 import Intermedio from '../../public/courses/intermedio.jpg'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Datos de los cursos extraídos de los PDFs
 const courses = [
@@ -33,11 +37,98 @@ const courses = [
 ]
 
 const CoursesSection = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animación del header
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      )
+
+      // Animación de cada curso
+      const courseItems = document.querySelectorAll('.course-item')
+      courseItems.forEach((item, index) => {
+        const image = item.querySelector('.course-image')
+        const content = item.querySelector('.course-content')
+        const isEven = index % 2 === 0
+
+        // Imagen slide desde el lado
+        gsap.fromTo(
+          image,
+          { opacity: 0, x: isEven ? -50 : 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+
+        // Contenido slide desde el lado opuesto
+        gsap.fromTo(
+          content,
+          { opacity: 0, x: isEven ? 50 : -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+      })
+
+      // Animación del CTA inferior
+      gsap.fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      )
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="bg-black py-20 lg:py-32">
+    <section ref={sectionRef} className="bg-black py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-20  space-y-16 lg:space-y-24">
         {/* Section Header */}
-        <div className="flex flex-col gap-6 text-center">
+        <div ref={headerRef} className="flex flex-col gap-6 text-center opacity-0">
           <div className='flex flex-col gap-2'>
             <span className="text-orange-600 text-sm font-light tracking-[0.3em] uppercase">Formación Profesional</span>
             <h2 className="text-white text-4xl lg:text-5xl font-semibold">
@@ -54,12 +145,12 @@ const CoursesSection = () => {
           {courses.map((course, index) => (
             <div 
               key={course.id}
-              className={`flex flex-col ${
+              className={`course-item flex flex-col ${
                 index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
               } gap-8 lg:gap-16 items-center`}
             >
               {/* Course Image */}
-              <div className="w-full lg:w-1/2 relative group">
+              <div className="course-image w-full lg:w-1/2 relative group opacity-0">
                 <div className="relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-lg">
                   <Image 
                     src={course.image} 
@@ -71,7 +162,7 @@ const CoursesSection = () => {
               </div>
 
               {/* Course Info */}
-              <div className="w-full lg:w-1/2">
+              <div className="course-content w-full lg:w-1/2 opacity-0">
                 {/* Level indicator */}
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-8 h-0.5 bg-orange-700 rounded-full" />
@@ -165,7 +256,7 @@ const CoursesSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="flex flex-col gap-2 items-center justify-center text-center">
+        <div ref={ctaRef} className="flex flex-col gap-2 items-center justify-center text-center opacity-0">
           <p className="text-gray-400">¿No estás seguro de qué curso elegir?</p>
           <Link 
             href="#"

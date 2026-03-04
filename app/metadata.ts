@@ -4,7 +4,7 @@ import type { Metadata, Viewport } from 'next'
 const siteConfig = {
   name: 'FoteArte Paraguay',
   shortName: 'FoteArte',
-  description: 'Escuela de fotografía líder en Paraguay desde 2011. Cursos presenciales y online, alquiler de equipos profesionales y una comunidad de más de 3,000 fotógrafos.',
+  description: 'Escuela de fotografía líder en Paraguay desde 2010. Cursos presenciales, alquiler de equipos profesionales y una comunidad de más de 3,000 fotógrafos.',
   tagline: 'Más que una escuela de fotografía',
   url: 'https://fotearte.com.py',
   ogImage: '/og-image.jpg',
@@ -146,7 +146,7 @@ export const metadata: Metadata = {
       { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#ea580c' },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: '/manifest.webmanifest',
 
   // URL canónica
   alternates: {
@@ -159,7 +159,7 @@ export const metadata: Metadata = {
 
   // Verificación de buscadores (agregar tus códigos)
   verification: {
-    google: 'tu-codigo-de-verificacion-google',
+    // google: 'tu-codigo-de-verificacion-google',
     // yandex: 'tu-codigo-yandex',
     // bing: 'tu-codigo-bing',
   },
@@ -203,7 +203,7 @@ export const jsonLd = {
       url: siteConfig.url,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`,
+        url: `${siteConfig.url}/logo.svg`,
         width: 180,
         height: 60,
       },

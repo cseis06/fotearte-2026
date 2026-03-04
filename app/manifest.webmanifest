@@ -35,13 +35,13 @@
       "name": "Alquiler de Cámaras",
       "short_name": "Alquiler",
       "description": "Ver equipos disponibles",
-      "url": "/cameras"
+      "url": "/camaras"
     },
     {
       "name": "Galería",
       "short_name": "Galería",
       "description": "Ver trabajos de la comunidad",
-      "url": "/gallery"
+      "url": "/galeria"
     }
   ]
 }
