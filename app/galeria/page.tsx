@@ -55,11 +55,11 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Capturar la esencia de cada persona. Cada retrato es una ventana al interior, una historia contada a través de la luz, las sombras y la expresión.',
       layout: 'hero-grid',
       photos: [
-        { id: 'r1', src: '/fotearte/77.jpg', title: 'Mirada Profunda', category: 'retratos', author: 'Desconocido', date: '2011' },
-        { id: 'r2', src: '/fotearte/152.jpg', title: 'Luz Natural', category: 'retratos', author: 'Desconocido', date: '2011' },
-        { id: 'r3', src: '/fotearte/9.jpg', title: 'Sombras', category: 'retratos', author: 'Desconocido', date: '2011' },
-        { id: 'r4', src: '/fotearte/201.jpg', title: 'Expresión', category: 'retratos', author: 'Desconocido', date: '2011' },
-        { id: 'r5', src: '/fotearte/91.jpg', title: 'Serenidad', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r1', src: '/fotearte/77.jpg', title: 'Práctica con modelo masculino', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r2', src: '/fotearte/152.jpg', title: 'Práctica con modelo femenino', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r3', src: '/fotearte/9.jpg', title: 'Práctica con modelo acostada', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r4', src: '/fotearte/201.jpg', title: 'Práctica con modelo en el  suelo', category: 'retratos', author: 'Desconocido', date: '2011' },
+        { id: 'r5', src: '/fotearte/91.jpg', title: 'Práctica con modelo al exterior', category: 'retratos', author: 'Desconocido', date: '2011' },
       ]
     },
     {
@@ -69,10 +69,10 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Desde los atardeceres sobre el río Paraguay hasta la inmensidad del Chaco. Nuestro país tiene una belleza única esperando ser capturada.',
       layout: 'cinema',
       photos: [
-        { id: 'p1', src: '/fotearte/52.jpg', title: 'Atardecer en el Río', category: 'paisajes', author: 'Roberto Núñez', date: '2024' },
-        { id: 'p2', src: '/fotearte/70.jpg', title: 'Cerro Lambaré', category: 'paisajes', author: 'Laura Martínez', date: '2024' },
-        { id: 'p3', src: '/fotearte/39.jpg', title: 'Selva del Este', category: 'paisajes', author: 'Diego Acosta', date: '2023' },
-        { id: 'p4', src: '/fotearte/198.jpg', title: 'Amanecer Chaqueño', category: 'paisajes', author: 'Elena Ferreira', date: '2024' },
+        { id: 'p1', src: '/fotearte/52.jpg', title: 'Fotografía grupal en el río', category: 'paisajes', author: 'Desconocido', date: '2011' },
+        { id: 'p2', src: '/fotearte/70.jpg', title: 'Atardecer en un cerro', category: 'paisajes', author: 'Desconocido', date: '2011' },
+        { id: 'p3', src: '/fotearte/39.jpg', title: 'Puesta de sol al río', category: 'paisajes', author: 'Desconocido', date: '2011' },
+        { id: 'p4', src: '/fotearte/198.jpg', title: 'Cotraste y perspectiva', category: 'paisajes', author: 'Desconocido', date: '2011' },
       ]
     },
     {
@@ -82,14 +82,14 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Momentos efímeros, gestos cotidianos, la poesía de lo urbano. La calle es nuestro estudio y la vida real, nuestra musa.',
       layout: 'masonry',
       photos: [
-        { id: 's1', src: '/fotearte/62.jpg', title: 'Mercado 4', category: 'street', author: 'Andrés Mendoza', date: '2024' },
-        { id: 's2', src: '/fotearte/40.jpg', title: 'Asunción de Noche', category: 'street', author: 'Valeria Ortiz', date: '2024' },
-        { id: 's3', src: '/fotearte/175.jpg', title: 'El Vendedor', category: 'street', author: 'Tomás Rojas', date: '2023' },
-        { id: 's4', src: '/fotearte/121.jpg', title: 'Paseo de la Galería', category: 'street', author: 'Camila Duarte', date: '2024' },
-        { id: 's5', src: '/fotearte/120.jpg', title: 'Lluvia Urbana', category: 'street', author: 'Fernando López', date: '2023' },
-        { id: 's6', src: '/fotearte/118.jpg', title: 'Reflejos', category: 'street', author: 'Patricia Giménez', date: '2024' },
-        { id: 's7', src: '/fotearte/68.jpg', title: 'Espera', category: 'street', author: 'Juan Vera', date: '2023' },
-        { id: 's8', src: '/fotearte/82.jpg', title: 'Movimiento', category: 'street', author: 'Lucía Cabrera', date: '2024' },
+        { id: 's1', src: '/fotearte/62.jpg', title: 'Fotografía grupal en el centro de asunción', category: 'street', author: 'Desconocido', date: '2011' },
+        { id: 's2', src: '/fotearte/40.jpg', title: 'Prácticas en la estación del ferrocarril de asunción', category: 'street', author: 'Desconocido', date: '2011' },
+        { id: 's3', src: '/fotearte/175.jpg', title: 'Cruzando la calle', category: 'street', author: 'Desconocido', date: '2011' },
+        { id: 's4', src: '/fotearte/121.jpg', title: 'Alumnos reunídos en la calle', category: 'street', author: 'Desconocido', date: '2011' },
+        { id: 's5', src: '/fotearte/120.jpg', title: 'Fotografía grupal de las alumnas y los profesores', category: 'street', author: 'Desconocido', date: '2011' },
+        { id: 's6', src: '/fotearte/118.jpg', title: 'Alumnas quitando fotografías', category: 'street', author: 'Desconocido', date: '2011' },
+        { id: 's7', src: '/fotearte/68.jpg', title: 'Antes del click', category: 'street', author: 'Desconocido', date: '2011' },
+        { id: 's8', src: '/fotearte/82.jpg', title: 'Alumnos en una clase', category: 'street', author: 'Desconocido', date: '2011' },
       ]
     },
     {
@@ -99,14 +99,14 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Cada producto tiene una historia. Nosotros la contamos a través de composiciones cuidadas, iluminación precisa y atención al detalle.',
       layout: 'featured-duo',
       photos: [
-        { id: 'pr1', src: '/fotearte/200.jpg', title: 'Reloj de Lujo', category: 'productos', author: 'Marcos Silva', date: '2024' },
-        { id: 'pr2', src: '/fotearte/109.jpg', title: 'Cosmética Natural', category: 'productos', author: 'Isabel Aquino', date: '2024' },
-        { id: 'pr3', src: '/fotearte/174.jpg', title: 'Joyería Artesanal', category: 'productos', author: 'Héctor Cardozo', date: '2023' },
-        { id: 'pr4', src: '/fotearte/173.jpg', title: 'Gastronomía', category: 'productos', author: 'Mónica Espínola', date: '2024' },
-        { id: 'pr5', src: '/fotearte/116.jpg', title: 'Moda', category: 'productos', author: 'Ricardo Fleitas', date: '2023' },
-        { id: 'pr6', src: '/fotearte/146.jpg', title: 'Artesanía', category: 'productos', author: 'Gabriel Paredes', date: '2024' },
-        { id: 'pr7', src: '/fotearte/46.jpg', title: 'Tecnología', category: 'productos', author: 'Daniela Ortega', date: '2023' },
-        { id: 'pr8', src: '/fotearte/134.jpg', title: 'Bebidas', category: 'productos', author: 'Martín Benítez', date: '2024' },
+        { id: 'pr1', src: '/fotearte/200.jpg', title: 'Persiguiendo la luz', category: 'productos', author: 'Desconocido', date: '2011' },
+        { id: 'pr2', src: '/fotearte/109.jpg', title: 'Prácticas de fotografías gastronómica', category: 'productos', author: 'Desconocido', date: '2011' },
+        { id: 'pr3', src: '/fotearte/174.jpg', title: 'Práctica de fotografía detalle', category: 'productos', author: 'Desconocido', date: '2011' },
+        { id: 'pr4', src: '/fotearte/173.jpg', title: 'La foto dentro de la foto', category: 'productos', author: 'Desconocido', date: '2011' },
+        { id: 'pr5', src: '/fotearte/116.jpg', title: 'La mirada del lente', category: 'productos', author: 'Desconocido', date: '2011' },
+        { id: 'pr6', src: '/fotearte/146.jpg', title: 'Fotearte Paraguay', category: 'productos', author: 'Desconocido', date: '2011' },
+        { id: 'pr7', src: '/fotearte/46.jpg', title: 'La cara de fotearte', category: 'productos', author: 'Desconocido', date: '2011' },
+        { id: 'pr8', src: '/fotearte/134.jpg', title: 'Disparo cruzado', category: 'productos', author: 'Desconocido', date: '2011' },
       ]
     },
     {
@@ -116,13 +116,13 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Capturamos la emoción y la energía de cada momento especial para que viva para siempre. ',
       layout: 'horizontal',
       photos: [
-        { id: 'e1', src: '/fotearte/55.jpg', title: 'Boda en el Campo', category: 'eventos', author: 'Patricia Giménez', date: '2024' },
-        { id: 'e2', src: '/fotearte/53.jpg', title: 'Concierto Rock', category: 'eventos', author: 'Juan Vera', date: '2024' },
-        { id: 'e3', src: '/fotearte/54.jpg', title: 'Festival Cultural', category: 'eventos', author: 'Lucía Cabrera', date: '2023' },
-        { id: 'e4', src: '/fotearte/147.jpg', title: 'Fiesta de 15', category: 'eventos', author: 'Andrés Mendoza', date: '2024' },
-        { id: 'e5', src: '/fotearte/166.jpg', title: 'Corporativo', category: 'eventos', author: 'Valeria Ortiz', date: '2023' },
-        { id: 'e6', src: '/fotearte/168.jpg', title: 'Graduación', category: 'eventos', author: 'Tomás Rojas', date: '2024' },
-        { id: 'e6', src: '/fotearte/186.jpg', title: 'Graduación', category: 'eventos', author: 'Tomás Rojas', date: '2024' },
+        { id: 'e1', src: '/fotearte/55.jpg', title: 'Boda en el Campo', category: 'eventos', author: 'Desconocido', date: '2024' },
+        { id: 'e2', src: '/fotearte/53.jpg', title: 'Concierto Rock', category: 'eventos', author: 'Desconocido', date: '2024' },
+        { id: 'e3', src: '/fotearte/54.jpg', title: 'Festival Cultural', category: 'eventos', author: 'Desconocido', date: '2023' },
+        { id: 'e4', src: '/fotearte/147.jpg', title: 'Fiesta de 15', category: 'eventos', author: 'Desconocido', date: '2024' },
+        { id: 'e5', src: '/fotearte/166.jpg', title: 'Corporativo', category: 'eventos', author: 'Desconocido', date: '2023' },
+        { id: 'e6', src: '/fotearte/168.jpg', title: 'Graduación', category: 'eventos', author: 'Desconocido', date: '2024' },
+        { id: 'e7', src: '/fotearte/186.jpg', title: 'Graduación', category: 'eventos', author: 'Desconocido', date: '2024' },
       ]
     },
     {
@@ -132,11 +132,11 @@ async function getGalleryData(): Promise<{ sections: Section[], allPhotos: Photo
       description: 'Flora y fauna paraguaya en su hábitat natural. Paciencia, respeto y el momento perfecto para capturar la vida silvestre.',
       layout: 'hero-grid',
       photos: [
-        { id: 'n1', src: '/fotearte/74.jpg', title: 'Tucán', category: 'naturaleza', author: 'Elena Ferreira', date: '2024', featured: true },
-        { id: 'n2', src: '/fotearte/87.jpg', title: 'Orquídea Silvestre', category: 'naturaleza', author: 'Gabriel Paredes', date: '2024' },
-        { id: 'n3', src: '/fotearte/4.jpg', title: 'Yacaré', category: 'naturaleza', author: 'Isabel Aquino', date: '2023' },
-        { id: 'n4', src: '/fotearte/37.jpg', title: 'Mariposa Azul', category: 'naturaleza', author: 'Diego Acosta', date: '2024' },
-        { id: 'n5', src: '/fotearte/21.jpg', title: 'Carpincho', category: 'naturaleza', author: 'Roberto Núñez', date: '2023' },
+        { id: 'n1', src: '/fotearte/74.jpg', title: 'Prácticas en el cerro', category: 'naturaleza', author: 'Desconocido', date: '2011', featured: true },
+        { id: 'n2', src: '/fotearte/87.jpg', title: 'Entre piedras', category: 'naturaleza', author: 'Desconocido', date: '2011' },
+        { id: 'n3', src: '/fotearte/4.jpg', title: 'Fotografías en el Botánico', category: 'naturaleza', author: 'Desconocido', date: '2011' },
+        { id: 'n4', src: '/fotearte/37.jpg', title: 'Atardecer en el muelle', category: 'naturaleza', author: 'Desconocido', date: '2011' },
+        { id: 'n5', src: '/fotearte/21.jpg', title: 'Al borde del lago', category: 'naturaleza', author: 'Desconocido', date: '2011' },
       ]
     }
   ]
