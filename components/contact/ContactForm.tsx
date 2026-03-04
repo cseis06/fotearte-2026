@@ -14,9 +14,9 @@ import emailjs from '@emailjs/browser'
 //    {{from_name}}, {{from_email}}, {{phone}}, {{subject}}, {{message}}
 // 4. Reemplazá los valores abajo con tus IDs:
 
-const EMAILJS_SERVICE_ID = 'service_b59e5p4'   // Tu Service ID
-const EMAILJS_TEMPLATE_ID = 'template_hv57ob5' // Tu Template ID  
-const EMAILJS_PUBLIC_KEY = 'kJt5zG7SwgWGRLxuk'    // Tu Public Key
+const EMAILJS_SERVICE_ID = 'service_nfw85eh'   // Tu Service ID
+const EMAILJS_TEMPLATE_ID = 'template_wotdxxu' // Tu Template ID  
+const EMAILJS_PUBLIC_KEY = 'SxnDM79aYmIpqqg9y'    // Tu Public Key
 
 // ============================================
 

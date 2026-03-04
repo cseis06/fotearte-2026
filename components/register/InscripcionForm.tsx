@@ -8,9 +8,9 @@ import emailjs from '@emailjs/browser'
 // ============================================
 // CONFIGURACIÓN DE EMAILJS
 // ============================================
-const EMAILJS_SERVICE_ID = 'service_XXXXXXX'   // Tu Service ID
-const EMAILJS_TEMPLATE_ID = 'template_XXXXXXX' // Tu Template ID (crear uno nuevo para inscripciones)
-const EMAILJS_PUBLIC_KEY = 'XXXXXXXXXXXXXX'    // Tu Public Key
+const EMAILJS_SERVICE_ID = 'service_nfw85eh'   // Tu Service ID
+const EMAILJS_TEMPLATE_ID = 'template_td57w6v' // Tu Template ID (crear uno nuevo para inscripciones)
+const EMAILJS_PUBLIC_KEY = 'SxnDM79aYmIpqqg9y'    // Tu Public Key
 
 // ============================================
 
