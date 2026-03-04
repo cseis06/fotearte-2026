@@ -17,7 +17,7 @@ const Cameras = () => {
     {
       icon: "mdi:camera-outline",
       title: "Equipos Profesionales",
-      description: "Canon, Nikon, Sony y más marcas premium disponibles para ti."
+      description: "Canon, Nikon, Sony y más marcas premium disponibles para vos."
     },
     {
       icon: "mdi:clock-outline",
@@ -147,7 +147,7 @@ const Cameras = () => {
             {/* Stats rápidos */}
             <div className="flex gap-8 pt-6 border-t border-neutral-800">
               <div>
-                <p className="text-3xl font-semibold text-white">50+</p>
+                <p className="text-3xl font-semibold text-white">22+</p>
                 <p className="text-neutral-500 font-light text-sm">Equipos disponibles</p>
               </div>
               <div>

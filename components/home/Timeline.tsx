@@ -28,7 +28,7 @@ const Timeline = () => {
 
   const events: TimelineEvent[] = [
     {
-      year: "2011",
+      year: "2010",
       title: "El Inicio",
       description: "Nace FoteArte en Asunción con la visión de democratizar la educación fotográfica en Paraguay. Comenzamos con 12 alumnos y un pequeño estudio.",
       highlight: true,
@@ -55,7 +55,7 @@ const Timeline = () => {
       icon: "mdi:monitor"
     },
     {
-      year: "2021",
+      year: "2020",
       title: "Una Década",
       description: "Celebramos 10 años con una exposición colectiva de más de 200 egresados en el Centro Cultural de Asunción.",
       highlight: true,
@@ -279,7 +279,7 @@ const Timeline = () => {
                 <span className="text-neutral-500 font-light"> capturando historias</span>
             </h2>
             <p className="text-neutral-400 text-lg">
-                Desde 2011, hemos formado a miles de fotógrafos profesionales en Paraguay.
+                Desde 2010, hemos formado a miles de fotógrafos profesionales en Paraguay.
             </p>
             </div>
         </div>

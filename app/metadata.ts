@@ -14,7 +14,7 @@ const siteConfig = {
     whatsapp: 'https://wa.me/595973497799',
   },
   founder: 'FoteArte Paraguay',
-  foundingYear: 2011,
+  foundingYear: 2010,
   locations: ['Asunción', 'Ciudad del Este', 'Villarrica', 'Encarnación', 'Coronel Oviedo'],
 }
 

@@ -68,10 +68,10 @@ const milestones = [
     image: '/about/timeline/2018.jpg'
   },
   {
-    year: '2021',
+    year: '2020',
     title: '10 años',
     description: 'Una década formando miradas. Celebramos con una exposición colectiva de nuestros mejores alumnos.',
-    image: '/about/timeline/2021.jpg'
+    image: '/about/timeline/2020.jpg'
   },
   {
     year: '2024',
